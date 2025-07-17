@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+
+    <changeSet id="0001-init-db" author="ArsenCholakyan">
+        <createTable tableName="user">
+            <column name="id" type="int(11)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="surname" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="token" type="varchar(255)">
+            </column>
+            <column name="active" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role" type="enum('USER','ADMIN')" defaultValue="USER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="category">
+            <column name="id" type="int(11)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="text">
+            </column>
+        </createTable>
+
+        <createTable tableName="product">
+            <column name="id" type="int(11)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="picture" type="varchar(255)">
+            </column>
+            <column name="category_id" type="int(11)">
+                <constraints nullable="false" foreignKeyName="fk_product_category" references="category(id)"/>
+            </column>
+            <column name="date_time" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="active" type="boolean" defaultValue="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="text">
+            </column>
+            <column name="quantity" type="int(11)">
+            </column>
+        </createTable>
+
+        <createTable tableName="basket">
+            <column name="id" type="int(11)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="product_id" type="int(11)">
+                <constraints nullable="false" foreignKeyName="fk_basket_product" references="product(id)"/>
+            </column>
+            <column name="user_id" type="int(11)">
+                <constraints nullable="false" foreignKeyName="fk_basket_user" references="user(id)"/>
+            </column>
+            <column name="quantity" type="int(11)">
+            </column>
+        </createTable>
+
+        <createTable tableName="order">
+            <column name="id" type="int(11)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="product_id" type="int(11)">
+                <constraints nullable="false" foreignKeyName="fk_order_product" references="product(id)"/>
+            </column>
+            <column name="user_id" type="int(11)">
+                <constraints nullable="false" foreignKeyName="fk_order_user" references="user(id)"/>
+            </column>
+            <column name="quantity" type="int(11)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="data" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="liked">
+            <column name="id" type="int(11)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="product_id" type="int(11)">
+                <constraints nullable="false" foreignKeyName="fk_liked_product" references="product(id)"/>
+            </column>
+            <column name="user_id" type="int(11)">
+                <constraints nullable="false" foreignKeyName="fk_liked_user" references="user(id)"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="product_category">
+            <column name="id" type="int(11)" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="product_id" type="int(11)">
+                <constraints nullable="false" foreignKeyName="fk_product_category_product" references="product(id)"/>
+            </column>
+            <column name="category_id" type="int(11)">
+                <constraints nullable="false" foreignKeyName="fk_product_category_category" references="category(id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

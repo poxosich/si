@@ -1,0 +1,484 @@
+Uri: https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\npm\bootstrap-icons@1.5.0\font\bootstrap-icons.css
+Content Type: text/css
+
+Uri: https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/fonts/bootstrap-icons.woff2?856008caa5eb66df68595e734e59580d
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\npm\bootstrap-icons@1.5.0\font\fonts\bootstrap-icons.woff2
+Content Type: font/woff2
+
+Uri: https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/fonts/bootstrap-icons.woff?856008caa5eb66df68595e734e59580d
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\npm\bootstrap-icons@1.5.0\font\fonts\bootstrap-icons.woff
+Content Type: font/woff
+
+Uri: https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;700&family=Poppins:wght@100;300;400;500;700&display=swap
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\css2
+Content Type: text/css
+
+Uri: https://fonts.gstatic.com/s/comfortaa/v46/1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4TbMPrQ.ttf
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\s\comfortaa\v46\1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4TbMPrQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/comfortaa/v46/1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4VrMPrQ.ttf
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\s\comfortaa\v46\1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4VrMPrQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/comfortaa/v46/1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4WjMPrQ.ttf
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\s\comfortaa\v46\1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4WjMPrQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/comfortaa/v46/1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4Y_LPrQ.ttf
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\s\comfortaa\v46\1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4Y_LPrQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLCz7V1s.ttf
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\s\poppins\v23\pxiByp8kv8JHgFVrLCz7V1s.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLDz8V1s.ttf
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\s\poppins\v23\pxiByp8kv8JHgFVrLDz8V1s.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/poppins/v23/pxiByp8kv8JHgFVrLGT9V1s.ttf
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\s\poppins\v23\pxiByp8kv8JHgFVrLGT9V1s.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/poppins/v23/pxiEyp8kv8JHgFVrFJA.ttf
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\s\poppins\v23\pxiEyp8kv8JHgFVrFJA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/poppins/v23/pxiGyp8kv8JHgFVrLPTedw.ttf
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\s\poppins\v23\pxiGyp8kv8JHgFVrLPTedw.ttf
+Content Type: font/ttf
+
+Uri: https://kingstudio.ro/demos/si//style/css/animate.min.css
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\css\animate.min.css
+Content Type: text/css
+
+Uri: https://kingstudio.ro/demos/si//style/css/aos.css
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\css\aos.css
+Content Type: text/css
+
+Uri: https://kingstudio.ro/demos/si//style/css/bootstrap.min.css
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\css\bootstrap.min.css
+Content Type: text/css
+
+Uri: https://kingstudio.ro/demos/si//style/css/fontawesome-all.min.css
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\css\fontawesome-all.min.css
+Content Type: text/css
+
+Uri: https://kingstudio.ro/demos/si//style/css/style.css
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\css\style.css
+Content Type: text/css
+
+Uri: https://kingstudio.ro/demos/si//style/images/bg-fashion-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\bg-fashion-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/bg-fashion.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\bg-fashion.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/bg1-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\bg1-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/bg1.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\bg1.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/bg2-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\bg2-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/bg2.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\bg2.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/bg3-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\bg3-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/bg3.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\bg3.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/cat1-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\cat1-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/cat1.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\cat1.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/cat2-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\cat2-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/cat2.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\cat2.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/cat3-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\cat3-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/cat3.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\cat3.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/favicon.png
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\favicon.png
+Content Type: image/png
+
+Uri: https://kingstudio.ro/demos/si//style/images/header-img.png
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\header-img.png
+Content Type: image/png
+
+Uri: https://kingstudio.ro/demos/si//style/images/logo-light.png
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\logo-light.png
+Content Type: image/png
+
+Uri: https://kingstudio.ro/demos/si//style/images/logo.png
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\logo.png
+Content Type: image/png
+
+Uri: https://kingstudio.ro/demos/si//style/images/pay-amex.svg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\pay-amex.svg
+Content Type: image/svg+xml
+
+Uri: https://kingstudio.ro/demos/si//style/images/pay-master-card.svg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\pay-master-card.svg
+Content Type: image/svg+xml
+
+Uri: https://kingstudio.ro/demos/si//style/images/pay-pp.svg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\pay-pp.svg
+Content Type: image/svg+xml
+
+Uri: https://kingstudio.ro/demos/si//style/images/pay-visa.svg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\pay-visa.svg
+Content Type: image/svg+xml
+
+Uri: https://kingstudio.ro/demos/si//style/images/ph-mini1-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\ph-mini1-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/ph-mini1.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\ph-mini1.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/ph-mini2-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\ph-mini2-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/ph-mini2.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\ph-mini2.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product-bg-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product-bg-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product-bg.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product-bg.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product1-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product1-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product1.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product1.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product10-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product10-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product10.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product10.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product11-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product11-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product11.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product11.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product12-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product12-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product12.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product12.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product13-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product13-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product13.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product13.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product14-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product14-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product14.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product14.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product15-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product15-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product15.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product15.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product16-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product16-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product16.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product16.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product2-2-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product2-2-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product2-2.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product2-2.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product2-3-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product2-3-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product2-3.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product2-3.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product2-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product2-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product2.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product2.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product3-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product3-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product3.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product3.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product4-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product4-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product4.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product4.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product5-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product5-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product5.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product5.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product6-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product6-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product6.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product6.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product7-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product7-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product7.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product7.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product8-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product8-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product8.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product8.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product9-dark.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product9-dark.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/images/product9.jpg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\images\product9.jpg
+Content Type: image/jpeg
+
+Uri: https://kingstudio.ro/demos/si//style/js/aos.js
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\js\aos.js
+Content Type: text/javascript
+
+Uri: https://kingstudio.ro/demos/si//style/js/bootstrap.bundle.min.js
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\js\bootstrap.bundle.min.js
+Content Type: text/javascript
+
+Uri: https://kingstudio.ro/demos/si//style/js/isotope-filter.js
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\js\isotope-filter.js
+Content Type: text/javascript
+
+Uri: https://kingstudio.ro/demos/si//style/js/isotope.min.js
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\js\isotope.min.js
+Content Type: text/javascript
+
+Uri: https://kingstudio.ro/demos/si//style/js/jarallax.min.js
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\js\jarallax.min.js
+Content Type: text/javascript
+
+Uri: https://kingstudio.ro/demos/si//style/js/rellax.min.js
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\js\rellax.min.js
+Content Type: text/javascript
+
+Uri: https://kingstudio.ro/demos/si//style/js/theme.js
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\js\theme.js
+Content Type: text/javascript
+
+Uri: https://kingstudio.ro/demos/si//style/webfonts/fa-brands-400.eot
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\webfonts\fa-brands-400.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://kingstudio.ro/demos/si//style/webfonts/fa-brands-400.eot?
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\webfonts\fa-brands-400-1.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://kingstudio.ro/demos/si//style/webfonts/fa-brands-400.svg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\webfonts\fa-brands-400.svg
+Content Type: image/svg+xml
+
+Uri: https://kingstudio.ro/demos/si//style/webfonts/fa-brands-400.ttf
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\webfonts\fa-brands-400.ttf
+Content Type: font/ttf
+
+Uri: https://kingstudio.ro/demos/si//style/webfonts/fa-brands-400.woff
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\webfonts\fa-brands-400.woff
+Content Type: font/woff
+
+Uri: https://kingstudio.ro/demos/si//style/webfonts/fa-brands-400.woff2
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\webfonts\fa-brands-400.woff2
+Content Type: font/woff2
+
+Uri: https://kingstudio.ro/demos/si//style/webfonts/fa-regular-400.eot
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\webfonts\fa-regular-400.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://kingstudio.ro/demos/si//style/webfonts/fa-regular-400.eot?
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\webfonts\fa-regular-400-1.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://kingstudio.ro/demos/si//style/webfonts/fa-regular-400.svg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\webfonts\fa-regular-400.svg
+Content Type: image/svg+xml
+
+Uri: https://kingstudio.ro/demos/si//style/webfonts/fa-regular-400.ttf
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\webfonts\fa-regular-400.ttf
+Content Type: font/ttf
+
+Uri: https://kingstudio.ro/demos/si//style/webfonts/fa-regular-400.woff
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\webfonts\fa-regular-400.woff
+Content Type: font/woff
+
+Uri: https://kingstudio.ro/demos/si//style/webfonts/fa-regular-400.woff2
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\webfonts\fa-regular-400.woff2
+Content Type: font/woff2
+
+Uri: https://kingstudio.ro/demos/si//style/webfonts/fa-solid-900.eot
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\webfonts\fa-solid-900.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://kingstudio.ro/demos/si//style/webfonts/fa-solid-900.eot?
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\webfonts\fa-solid-900-1.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://kingstudio.ro/demos/si//style/webfonts/fa-solid-900.svg
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\webfonts\fa-solid-900.svg
+Content Type: image/svg+xml
+
+Uri: https://kingstudio.ro/demos/si//style/webfonts/fa-solid-900.ttf
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\webfonts\fa-solid-900.ttf
+Content Type: font/ttf
+
+Uri: https://kingstudio.ro/demos/si//style/webfonts/fa-solid-900.woff
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\webfonts\fa-solid-900.woff
+Content Type: font/woff
+
+Uri: https://kingstudio.ro/demos/si//style/webfonts/fa-solid-900.woff2
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\/style\webfonts\fa-solid-900.woff2
+Content Type: font/woff2
+
+Uri: https://kingstudio.ro/demos/si/checkout-dark.html
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\checkout-dark.html
+Content Type: text/html
+
+Uri: https://kingstudio.ro/demos/si/checkout.html
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\checkout.html
+Content Type: text/html
+
+Uri: https://kingstudio.ro/demos/si/contact-dark.html
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\contact-dark.html
+Content Type: text/html
+
+Uri: https://kingstudio.ro/demos/si/contact.html
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\contact.html
+Content Type: text/html
+
+Uri: https://kingstudio.ro/demos/si/index-dark.html
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\index-dark.html
+Content Type: text/html
+
+Uri: https://kingstudio.ro/demos/si/index.html
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\index.html
+Content Type: text/html
+
+Uri: https://kingstudio.ro/demos/si/my-account-dark.html
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\my-account-dark.html
+Content Type: text/html
+
+Uri: https://kingstudio.ro/demos/si/my-account.html
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\my-account.html
+Content Type: text/html
+
+Uri: https://kingstudio.ro/demos/si/shop-dark.html
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\shop-dark.html
+Content Type: text/html
+
+Uri: https://kingstudio.ro/demos/si/shop.html
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\shop.html
+Content Type: text/html
+
+Uri: https://kingstudio.ro/demos/si/single-product-dark.html
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\single-product-dark.html
+Content Type: text/html
+
+Uri: https://kingstudio.ro/demos/si/single-product.html
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\demos\si\single-product.html
+Content Type: text/html
+
+Uri: https://unpkg.com/swiper@11.2.8/swiper-bundle.min.css
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\swiper@11.2.8\swiper-bundle.min.css
+Content Type: text/css
+
+Uri: https://unpkg.com/swiper@11.2.8/swiper-bundle.min.js
+File Name: C:\Users\User\IdeaProjects\si-template\kingstudio.ro\swiper@11.2.8\swiper-bundle.min.js
+Content Type: text/javascript
+

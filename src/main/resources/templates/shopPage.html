@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Si - Minimal Shop Theme">
+    <meta name="author" content="kingstudio.ro">
+    <!-- Favicon -->
+    <link rel="icon" href="/style/images/favicon.png">
+    <!-- Site Title -->
+    <title>Si - Minimal Shop Theme</title>
+    <!-- Bootstrap 5 Core CSS -->
+    <link href="/style/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/style/css/animate.min.css">
+    <link rel="stylesheet" href="/style/css/aos.css">
+    <link rel="stylesheet" href="/style/css/style.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="/style/css/fontawesome-all.min.css" type="text/css">
+</head>
+
+<body class="dark-mode">
+
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+
+<div id="#top"></div>
+
+<nav class="navbar navbar-expand-lg navbar-inverse bg-black">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/v1/"><img src="/style/images/logo-light.png" alt=""></a>
+
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbar-toggle-nav-center" aria-controls="navbar-toggle-nav-center"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+            <span class="sr-only">Toggle navigation</span>
+        </button><!-- / navbar-toggler -->
+
+        <div class="collapse navbar-collapse" id="navbar-toggle-nav-center">
+            <ul class="navbar-nav m-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/v1/" th:text="#{home.home}"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="shop-dark.html" th:text="#{home.shop}"></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#x" id="dropdown-stacked" data-bs-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" th:text="#{home.categories}"></a>
+                    <div class="dropdown-menu mega-menu two-columns drop-to-center" aria-labelledby="dropdown-stacked">
+                        <div class="row">
+                            <div class="col-lg-6 sub-menu" th:each="category : ${allCategory}">
+                                <a class="dropdown-item" th:href="@{/v1/shop/{id}(id=${category.id})}"
+                                   th:text="${category.name}"></a>
+                            </div><!-- / sub-menu -->
+                        </div><!-- / row -->
+                    </div><!-- / dropdown-menu -->
+                </li><!-- / dropdown -->
+                <li class="nav-item">
+                    <a class="nav-link" href="contact-dark.html" th:href="#{home.contact}"></a>
+                </li>
+            </ul><!-- / navbar-nav -->
+
+            <ul class="navbar-icons p-0 m-0">
+                <li class="nav-item d-inline-block first-icon">
+                    <a href="#x" class="nav-icon" data-bs-toggle="modal" data-bs-target=".modal-fs-search"><span>&#128270;</span></a>
+                </li>
+                <li class="nav-item d-inline-block middle-icon relative ml-0" th:if="${check}">
+                    <a href="#x" class="nav-icon" data-bs-toggle="modal" data-bs-target=".modal-fs-wishlist"><span>&#129293;</span>
+                        <span class="cart-count" th:text="${likedSize}">3</span></a>
+                </li>
+                <li class="nav-item d-inline-block last-icon relative">
+                    <a href="#x" class="nav-icon" data-bs-toggle="modal"
+                       data-bs-target=".modal-fs-cart"><span>&#128722;</span> <span class="cart-count"
+                                                                                    th:text="${basketSize}"></span></a>
+                </li>
+            </ul>
+        </div><!-- / navbar-collapse -->
+    </div><!-- / container-fluid -->
+</nav>
+
+<header class="page-header bg-img jarallax" data-jarallax data-speed="0.8"
+        style="background-image: url(/style/images/bg2-dark.jpg);">
+    <div class="container-fluid">
+        <div class="header-content pb-0">
+            <h1 class="page-title ml-0 mb-0 fw-bold" th:text="#{home.shop}">SHOP</h1>
+        </div><!-- / header-content -->
+    </div><!-- / container -->
+</header>
+
+<div class="main-container p-0">
+
+    <section id="shop" class="bg-black">
+        <div class="container-fluid">
+
+            <h2 class="section-title hidden">SHOP</h2>
+
+            <section id="new-arrivals" class="bg-black">
+                <div class="container-fluid">
+                    <h2 class="section-title hidden">NEW ARRIVALS</h2>
+
+                    <div class="button-group filters-button-group text-center">
+                        <a class="btn filter-btn"
+                           href="/v1/shop"
+                           th:style="${activeCategoryId == null or activeCategoryId == 0} ? 'background-color: color: white;' : ''">
+                            ALL
+                        </a>
+
+                        <a class="btn filter-btn"
+                           th:each="category : ${allCategory}"
+                           th:href="@{/v1/shop/{id}(id=${category.id})}"
+                           th:text="${category.name}"
+                           th:style="${activeCategoryId == category.id} ? 'background-color: red; color: white;' : ''">
+                        </a>
+                    </div>
+                    <style>
+                        .button-group {
+                            display: flex;
+                            gap: 10px;
+                            justify-content: center;
+                            flex-wrap: wrap; /* եթե փոքր է էկրանը՝ տողից տող անցնելու համար */
+                        }
+
+                        .filter-btn {
+                            background-color: black;
+                            color: black;
+                            transition: background-color 0.3s, color 0.3s;
+                            padding: 8px 16px;
+                            text-decoration: none;
+                            border-radius: 5px;
+                        }
+
+                        .filter-btn:hover {
+                            background-color: #ec5f94;
+                            color: white;
+                        }
+                    </style><!-- /  filters-button-group -->
+
+
+                    <div class="row grid">
+                        <div class="col-sm-6 col-lg-3 grid-item women" th:each="product : ${products}">
+                            <div class="product">
+                                <figure class="shop-item">
+                                    <div class="hovereffect">
+                                        <a th:href="@{/v1/product/page/{id}(id=${product.id})}"><img
+                                                class="img-responsive" th:src="@{/grtImage(picture=${product.picture})}"
+                                                alt="" style="width: 450px; height: 200px; object-fit: cover;"></a>
+
+                                        <div class="overlay">
+                                            <div class="hover-icons" th:if="${check}">
+                                                <a th:href="@{/v1/shop/liked/{id}(id=${product.id})}"
+                                                   class="btn btn-xs btn-icon btn-circle btn-outline-primary"><span>&#9829;</span></a>
+                                            </div><!-- / hover-icons -->
+
+                                            <div class="hovereffect-title">
+                                                <div class="hover-bottom">
+                                                    <div class="row v-center">
+                                                        <div class="col-8 col-md-7 col-lg-8">
+                                                            <div class="product-info">
+                                                                <a th:href="@{/v1/product/page/{id}(id=${product.id})}"
+                                                                   class="product-title" th:text="${product.name}"></a>
+                                                                <p class="product-cat"
+                                                                   th:text="${product.category.name}"></p>
+                                                            </div><!-- / product-info -->
+                                                        </div><!-- / column -->
+                                                        <div class="col-4 col-md-5 col-lg-4">
+                                                            <p class="product-price" th:text="'$'+${product.price}"></p>
+                                                        </div><!-- / column -->
+                                                    </div><!-- / row -->
+                                                </div><!-- / hover-bottom -->
+                                            </div><!-- / hovereffect-title -->
+                                        </div><!-- / overlay -->
+                                    </div><!-- / hovereffect -->
+                                </figure><!-- / shop-item -->
+                            </div><!-- / product -->
+                        </div><!-- / column -->
+                    </div><!-- / row -->
+                </div><!-- / container-fluid -->
+            </section><!-- / new-arrivals -->
+        </div><!-- / container-fluid -->
+    </section><!-- / shop -->
+
+    <section id="offer">
+        <div class="container-fluid">
+            <div class="promo-box bg-transparent no-shadow p-x-0">
+                <div class="row">
+                    <div class="col-md-4 col-line tablet-xl-no-border">
+                        <div class="p-y-40 promo-center text-left tablet-text-center">
+                            <div class="promo-container-big">
+                                <div class="promo-big">
+                                    <i class="bi bi-truck promo-icon text-primary"></i>
+                                </div><!-- / promo-icon-bg -->
+                                <h6 class="box-title">Free Shipping</h6>
+                                <p class="box-description">Free Shipping over $100</p>
+                            </div><!-- / promo-container-big -->
+                        </div><!-- / promo-center -->
+                    </div><!-- / column -->
+
+                    <div class="col-md-4 col-line tablet-xl-no-border">
+                        <div class="p-y-40 promo-center">
+                            <div class="promo-container-big">
+                                <div class="promo-big">
+                                    <i class="bi bi-cash-stack promo-icon text-primary"></i>
+                                </div><!-- / promo-icon-bg -->
+                                <h6 class="box-title">Moneyback Guarantee</h6>
+                                <p class="box-description">30 Days Money Back Guarantee</p>
+                            </div><!-- / promo-container-big -->
+                        </div><!-- / promo-center -->
+                    </div><!-- / column -->
+
+                    <div class="col-md-4 col-line">
+                        <div class="p-y-40 promo-center text-right tablet-text-center">
+                            <div class="promo-container-big">
+                                <div class="promo-big">
+                                    <i class="bi bi-headset promo-icon text-primary"></i>
+                                </div><!-- / promo-icon-bg -->
+                                <h6 class="box-title">Customer Support</h6>
+                                <p class="box-description">24/7 Phone & Email Support</p>
+                            </div><!-- / promo-container-big -->
+                        </div><!-- / promo-center -->
+                    </div><!-- / column -->
+                </div><!-- / row -->
+            </div><!-- / promo-box -->
+        </div><!-- / container-fluid -->
+    </section><!-- / offer -->
+</div><!-- / main-container -->
+
+<div class="footer-wrapper bg-black">
+    <div class="footer-widget-area bg-transparent">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-4">
+                    <div class="widget">
+                        <div class="row">
+                            <div class="col-6 tablet-xl-top">
+                                <ul class="list-unstyled list-has-link menu-list mb-0">
+                                    <li class="mb-20 fs-12 text-secondary-dark">COMPANY</li>
+                                    <li><a href="#x">About Us</a></li>
+                                    <li><a href="#x">Contact Us</a></li>
+                                    <li><a href="#x">Privacy Policy</a></li>
+                                    <li class="mb-0"><a href="#x">Terms & Conditions</a></li>
+                                </ul><!-- / list-unstyled -->
+                            </div><!-- / column -->
+
+                            <div class="col-6">
+                                <ul class="list-unstyled list-has-link menu-list mb-0">
+                                    <li class="mb-20 fs-12 text-secondary-dark">HELP CENTER</li>
+                                    <li><a href="#x">FAQ</a></li>
+                                    <li><a href="#x">Support</a></li>
+                                    <li><a href="#x">Payments</a></li>
+                                    <li class="mb-0"><a href="#x">Shipping & Returns</a></li>
+                                </ul><!-- / list-unstyled -->
+                            </div><!-- / column -->
+                        </div><!-- / row -->
+                    </div><!-- / widget -->
+                </div><!-- / column -->
+
+                <div class="col-md-6 col-xl-4">
+                    <div class="widget w-80 tablet-xl-fw m-x-auto">
+                        <h6 class="widget-title">Subscribe to Newsletter</h6>
+                        <p class="mb-10">Quisque aliquet lorem nec dui posuere des:</p>
+                        <div class="input-group input-w-overlap-btn mb-15">
+                            <input type="text" class="form-control" placeholder="Email">
+                            <span class="input-group-btn">
+                                    <button class="btn btn-sm btn-dark lh-0 overlapping-btn big-btn" type="button"><i
+                                            class="far fa-paper-plane mr-5"></i> Subscribe</button>
+                                </span><!-- / input-group-btn -->
+                        </div><!-- / input-group -->
+                        <p>
+                            <a href="#x" class="text-link mr-20"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#x" class="text-link mr-20"><i class="fab fa-twitter"></i></a>
+                            <a href="#x" class="text-link mr-20"><i class="fab fa-pinterest"></i></a>
+                            <a href="#x" class="text-link"><i class="fab fa-instagram"></i></a>
+                        </p>
+                    </div><!-- / widget -->
+                </div><!-- / column -->
+
+
+                <div class="col-md-6 col-xl-4">
+                    <div class="widget w-70 ml-auto">
+                        <h6 class="widget-title">Region & Currency</h6>
+                        <select class="custom-select mb-15" id="select">
+                            <option>United States</option>
+                            <option>United Kingdom</option>
+                            <option>Europe</option>
+                            <option>Australia</option>
+                        </select>
+
+                        <select class="custom-select mb-15" id="select2">
+                            <option>USD</option>
+                            <option>GBP</option>
+                            <option>EUR</option>
+                            <option>AUD</option>
+                        </select>
+                    </div><!-- / widget -->
+                </div><!-- / column -->
+            </div><!-- / row -->
+        </div><!-- / container-fluid -->
+    </div><!-- / footer-widget-area -->
+
+    <footer class="bg-transparent relative">
+        <div class="container-fluid">
+            <div class="row v-center mobile-center">
+                <div class="col-lg-4 tablet-lg-text-center tablet-lg-top-30">
+                    <img src="/style/images/logo-light.png" class="footer-logo" alt="">
+                </div><!-- / footer-left-area -->
+                <div class="col-lg-4 footer-center-area text-center tablet-lg-top-30">
+                    <p>© 2021 Si by <a href="https://kingstudio.ro" target="_blank">KingStudio</a></p>
+                </div><!-- / footer-center-area -->
+                <div class="col-lg-4 tablet-lg-text-center text-right">
+                    <div class="payment-methods">
+                        <img src="/style/images/pay-visa.svg" alt="">
+                        <img src="/style/images/pay-master-card.svg" alt="">
+                        <img src="/style/images/pay-pp.svg" alt="">
+                        <img src="/style/images/pay-amex.svg" alt="">
+                    </div><!-- / payment-methods -->
+                </div><!-- / footer-right-area -->
+            </div><!-- / row -->
+        </div><!-- / container-fluid -->
+    </footer>
+</div><!-- / footer-wrapper -->
+
+<a href="shop.html" class="btn btn-xs btn-white btn-icon btn-switch z-index-99"><i class="far fa-sun"></i> <span>Light Theme</span></a>
+
+<!-- header-icon-modals -->
+
+<div class="modal fade modal-fs modal-fs-search" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="container text-center">
+                    <div class="row full-height align-items-center">
+                        <div class="col-md-10 col-lg-8 col-xl-6 m-x-auto">
+                            <form method="get" action="/v1/shop/search">
+                                <div class="input-group mb-0 w-100">
+                                    <input type="text" name="name" class="form-control"
+                                           placeholder="What are you looking for?">
+                                    <button class="btn btn-sm btn-dark lh-0 big-btn" type="submit">
+                                        <i class="bi bi-search mr-5"></i> <span>Search</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div><!-- / column -->
+                    </div><!-- / modal-body -->
+                </div><!-- / modal-body -->
+                <a class="modal-close" href="" data-dismiss="modal">
+                    <style>
+                        .close-icon {
+                            color: white;
+                            transition: color 0.3s ease;
+                            cursor: pointer;
+                        }
+
+                        .close-icon:hover {
+                            color: red;
+                        }
+                    </style>
+
+                    <span class="close-icon">&#10006;</span>
+                </a><!-- / modal-close -->
+            </div><!-- / modal-body -->
+        </div><!-- / modal-content -->
+    </div><!-- / modal-dialog -->
+</div><!-- / modal-search -->
+
+<div class="modal fade modal-fs modal-fs-account" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row full-height align-items-center">
+                        <div class="col-md-10 col-lg-8 col-xl-6 m-x-auto">
+                            <div class="card card-w-bar">
+                                <div class="card-body">
+                                    <ul class="nav nav-tabs tab-w-bar bg-dark text-center" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" data-bs-toggle="tab" href="#login" role="tab"><i
+                                                    class="bi bi-person fs-20 va-middle mr-5"></i> Login</a>
+                                        </li><!-- / nav-item -->
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#register" role="tab"><i
+                                                    class="bi bi-person-plus fs-20 va-middle mr-5"></i> Register</a>
+                                        </li><!-- / nav-item -->
+                                    </ul><!-- / nav tabs -->
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade show active mt-20" id="login" role="tabpanel">
+                                            <form class="needs-validation" id="login-form2" novalidate="novalidate">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="usernameLogin2"
+                                                           placeholder="Username" required="">
+                                                </div><!-- / form-group -->
+
+                                                <div class="form-group">
+                                                    <input type="password" class="form-control" name="passwordLogin2"
+                                                           placeholder="Password" required="">
+                                                </div><!-- / form-group -->
+
+                                                <div class="row v-center mt-15">
+                                                    <div class="col-lg-7 tablet-lg-top">
+                                                        <div class="checkbox checkbox-primary ml-10">
+                                                            <label class="hidden"><input type="checkbox"></label>
+                                                            <input id="checkbox-login" type="checkbox">
+                                                            <label for="checkbox-login"><span>Remember Me</span></label>
+                                                        </div><!-- / checkbox -->
+                                                    </div><!-- / column -->
+                                                    <div class="col-lg-5 text-right">
+                                                        <a href="my-account-dark.html"
+                                                           class="btn btn-outline-primary tablet-lg-fw">Sign In</a>
+                                                    </div><!-- / column -->
+                                                </div><!-- / row -->
+                                            </form><!-- / login-form -->
+                                        </div><!-- / tab-pane -->
+
+                                        <div class="tab-pane fade mt-20" id="register" role="tabpanel">
+                                            <form class="needs-validation" id="register-form" novalidate="novalidate">
+                                                <div class="form-group">
+                                                    <input type="email" class="form-control" name="emailRegister"
+                                                           placeholder="Email" required="">
+                                                </div><!-- / form-group -->
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="usernameRegister"
+                                                           placeholder="Username" required="">
+                                                </div><!-- / form-group -->
+                                                <div class="form-group">
+                                                    <input type="password" id="passwordRegister" class="form-control"
+                                                           name="passwordRegister" placeholder="Password" required="">
+                                                </div><!-- / form-group -->
+                                                <div class="form-group">
+                                                    <input type="password" class="form-control"
+                                                           name="passwordRegisterConfirm" placeholder="Confirm Password"
+                                                           required="">
+                                                </div><!-- / form-group -->
+
+                                                <div class="row v-center">
+                                                    <div class="col-xl-7 tablet-xl-top">
+                                                        <div class="checkbox checkbox-primary ml-10">
+                                                            <label class="hidden"><input type="checkbox"></label>
+                                                            <input id="checkbox-register" type="checkbox">
+                                                            <label for="checkbox-register"><span> Accept <a href="#x">Terms &amp; Conditions</a></span></label>
+                                                        </div><!-- / checkbox -->
+                                                    </div><!-- / column -->
+
+                                                    <div class="col-xl-5 text-right">
+                                                        <button type="submit"
+                                                                class="btn btn-outline-primary tablet-xl-fw">Register
+                                                        </button>
+                                                    </div><!-- / column -->
+                                                </div><!-- / row -->
+                                            </form><!-- / register-form -->
+                                        </div><!-- / tab-pane -->
+                                    </div><!-- / tab-content -->
+                                </div><!-- / card-body -->
+                            </div><!-- / card -->
+                            <!-- / tab-w-bar -->
+                        </div><!-- / column -->
+                    </div><!-- / modal-body -->
+                </div><!-- / modal-body -->
+                <a class="modal-close" href="" data-dismiss="modal">
+                    <style>
+                        .close-icon {
+                            color: white;
+                            transition: color 0.3s ease;
+                            cursor: pointer;
+                        }
+
+                        .close-icon:hover {
+                            color: red;
+                        }
+                    </style>
+
+                    <span class="close-icon">&#10006;</span>
+                </a><!-- / modal-close -->
+            </div><!-- / modal-body -->
+        </div><!-- / modal-content -->
+    </div><!-- / modal-dialog -->
+</div><!-- / modal-account -->
+
+<div class="modal fade modal-fs modal-fs-wishlist" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row full-height align-items-center">
+
+                        <div class="col-md-10 col-lg-8 col-xl-6 m-x-auto">
+                            <ul class="list-unstyled wishlist-list">
+                                <li class="wishlist-item" th:each="likedl : ${liked}">
+                                    <a th:href="@{/v1/product/page/{id}(id=${likedl.product.id})}">
+                                        <img th:src="@{/grtImage(picture=${likedl.product.picture})}" alt="">
+                                    </a>
+                                    <div class="wishlist-info">
+                                        <a th:href="@{/v1/product/page/{id}(id=${likedl.product.id})}"
+                                           class="fs-20 fw-bold" th:text="${likedl.product.name}">Product Name</a>
+                                        <p class="fs-12 mb-5"><b>Category:</b> <span
+                                                th:text="${likedl.product.category.name}">Category Name</span></p>
+                                        <p class="fs-12 mb-15"><b>Price:</b> $<span
+                                                th:text="${likedl.product.price}">19</span></p>
+                                        <a th:href="@{/v1/shop/delete{id}(id=${likedl.product.id})}"
+                                           class="wishlist-remove"><span>&#215;</span></a>
+                                    </div><!-- / wishlist-info -->
+                                </li><!-- / wishlist-item -->
+                            </ul>
+                            <br><!-- / wishlist-list -->
+                        </div><!-- / column -->
+
+                    </div><!-- / modal-body -->
+                </div><!-- / modal-body -->
+                <a class="modal-close" href="javascript:void(0)" onclick="location.reload()">
+                    <style>
+                        .close-icon {
+                            color: white;
+                            transition: color 0.3s ease;
+                            cursor: pointer;
+                        }
+
+                        .close-icon:hover {
+                            color: red;
+                        }
+                    </style>
+
+                    <span class="close-icon">&#10006;</span>
+                </a><!-- / modal-close -->
+            </div><!-- / modal-body -->
+        </div><!-- / modal-content -->
+    </div><!-- / modal-dialog -->
+</div><!-- / modal-wishlist -->
+
+<div class="modal fade modal-fs modal-fs-cart" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row full-height align-items-center">
+                        <div class="col-lg-8 m-x-auto">
+
+                            <div class="table-overflow" data-aos="fade-up">
+
+                                <form id="checkout-form" action="/v1/order/all" method="post">
+                                    <table class="table table-xl align-middle text-center">
+                                        <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col">Product</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Quantity</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr th:each="bask : ${basket}">
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="me-3">
+                                                        <a th:href="@{/v1/product/page/{id}(id=${bask.product.id})}">
+                                                            <img th:src="@{/grtImage(picture=${bask.product.picture})}"
+                                                                 alt="Product image"
+                                                                 style="width: 80px; height: 80px; object-fit: contain; border-radius: 8px;">
+                                                        </a>
+                                                    </div>
+                                                    <div class="text-start">
+                                                        <span class="fw-bold d-block"
+                                                              th:text="${bask.product.name}"></span>
+                                                        <span class="text-muted small"
+                                                              th:text="${bask.product.category.name}"></span>
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" name="productIdList"
+                                                       th:value="${bask.product.id}"/>
+                                            </td>
+
+                                            <td class="align-middle fw-semibold"
+                                                th:text="${bask.product.price} + ' $'"></td>
+
+                                            <td class="align-middle">
+                                                <input type="number"
+                                                       name="quantityList"
+                                                       th:id="'quantity-' + ${bask.product.id}"
+                                                       step="1"
+                                                       min="1"
+                                                       th:attr="max=${bask.product.quantity}"
+                                                       th:value="${bask.quantity}"
+                                                       class="form-control text-center mx-auto"
+                                                       style="max-width: 80px;">
+                                            </td>
+
+                                            <td class="align-middle">
+                                                <button type="button"
+                                                        class="btn btn-sm btn-outline-primary"
+                                                        th:attr="data-id=${bask.product.id}"
+                                                        onclick="submitSingleOrder(this)">
+                                                    Buy
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="4" class="text-start">
+                                                <p class="mb-2"><b>Shipping:</b> Free</p>
+                                                <p class="mb-0" th:text="'Total: ' + ${total} + ' $'"></p>
+                                                <button type="submit"
+                                                        class="btn btn-sm btn-outline-primary d-block mt-2">
+                                                    <i class="bi bi-cart2 me-1"></i> Checkout
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </form>
+                            </div>
+
+
+                            <script>
+                                function submitSingleOrder(button) {
+                                    const productId = button.getAttribute("data-id");
+                                    const quantity = document.getElementById("quantity-" + productId).value;
+
+
+                                    const form = document.createElement("form");
+                                    form.method = "POST";
+                                    form.action = "/v1/order";
+
+                                    const pidInput = document.createElement("input");
+                                    pidInput.type = "hidden";
+                                    pidInput.name = "productId";
+                                    pidInput.value = productId;
+
+                                    const qtyInput = document.createElement("input");
+                                    qtyInput.type = "hidden";
+                                    qtyInput.name = "quantity";
+                                    qtyInput.value = quantity;
+
+                                    form.appendChild(pidInput);
+                                    form.appendChild(qtyInput);
+
+                                    document.body.appendChild(form);
+                                    form.submit();
+                                }
+                            </script>
+
+
+                            <!-- / shopping-cart table -->
+                        </div><!-- / column -->
+                    </div><!-- / modal-body -->
+                </div><!-- / modal-body -->
+                <a class="modal-close" href="" data-dismiss="modal">
+                    <style>
+                        .close-icon {
+                            color: white;
+                            transition: color 0.3s ease;
+                            cursor: pointer;
+                        }
+
+                        .close-icon:hover {
+                            color: red;
+                        }
+                    </style>
+
+                    <span class="close-icon">&#10006;</span>
+                </a><!-- / modal-close -->
+            </div><!-- / modal-body -->
+        </div><!-- / modal-content -->
+    </div><!-- / modal-dialog -->
+</div><!-- / modal-cart -->
+
+<!-- / header-icon-modals -->
+
+<!-- Core JavaScript -->
+<script src="/style/js/bootstrap.bundle.min.js"></script>
+<script src="/style/js/theme.js"></script>
+
+<!-- aos -->
+<script src="/style/js/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1200,
+    })
+</script>
+<!-- / aos -->
+
+<!-- Jarallax -->
+<script src="/style/js/jarallax.min.js"></script>
+<!-- / Jarallax -->
+
+<!-- Isotope -->
+<script src="/style/js/isotope.min.js"></script>
+<script src="/style/js/isotope-filter.js"></script>
+<!-- / Isotope -->
+
+</body>
+</html>
