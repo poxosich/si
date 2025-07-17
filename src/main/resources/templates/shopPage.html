@@ -543,7 +543,7 @@
                         <div class="col-lg-8 m-x-auto">
 
                             <div class="table-overflow" data-aos="fade-up">
-
+                                <!-- Checkout Form -->
                                 <form id="checkout-form" action="/v1/order/all" method="post">
                                     <table class="table table-xl align-middle text-center">
                                         <thead class="thead-light">
@@ -598,6 +598,14 @@
                                                         onclick="submitSingleOrder(this)">
                                                     Buy
                                                 </button>
+
+
+                                                <button type="button"
+                                                        class="btn btn-sm btn-outline-danger ms-2"
+                                                        th:attr="data-id=${bask.product.id}"
+                                                        onclick="submitDeleteBasketItem(this)">
+                                                    Delete
+                                                </button>
                                             </td>
                                         </tr>
 
@@ -622,7 +630,7 @@
                                     const productId = button.getAttribute("data-id");
                                     const quantity = document.getElementById("quantity-" + productId).value;
 
-
+                                    // Create form dynamically
                                     const form = document.createElement("form");
                                     form.method = "POST";
                                     form.action = "/v1/order";
@@ -640,6 +648,24 @@
                                     form.appendChild(pidInput);
                                     form.appendChild(qtyInput);
 
+                                    document.body.appendChild(form);
+                                    form.submit();
+                                }
+
+
+                                function submitDeleteBasketItem(button) {
+                                    const productId = button.getAttribute("data-id");
+
+                                    const form = document.createElement("form");
+                                    form.method = "POST";
+                                    form.action = "/v1/basket/delete";
+
+                                    const pidInput = document.createElement("input");
+                                    pidInput.type = "hidden";
+                                    pidInput.name = "productId";
+                                    pidInput.value = productId;
+
+                                    form.appendChild(pidInput);
                                     document.body.appendChild(form);
                                     form.submit();
                                 }

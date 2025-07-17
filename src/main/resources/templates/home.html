@@ -682,7 +682,7 @@
                                                     Buy
                                                 </button>
 
-                                                <!-- ✅ Ավելացված Delete կոճակը -->
+
                                                 <button type="button"
                                                         class="btn btn-sm btn-outline-danger ms-2"
                                                         th:attr="data-id=${bask.product.id}"
@@ -707,7 +707,7 @@
                                 </form>
                             </div>
 
-                            <!-- ✅ JS հատվածը -->
+
                             <script>
                                 function submitSingleOrder(button) {
                                     const productId = button.getAttribute("data-id");
@@ -735,13 +735,13 @@
                                     form.submit();
                                 }
 
-                                // ✅ Ավելացված ֆունկցիա՝ ապրանքը զամբյուղից ջնջելու համար
+
                                 function submitDeleteBasketItem(button) {
                                     const productId = button.getAttribute("data-id");
 
                                     const form = document.createElement("form");
                                     form.method = "POST";
-                                    form.action = "/v1/basket/delete"; // փոխիր, եթե ուրիշ ռոութ ունես
+                                    form.action = "/v1/basket/delete";
 
                                     const pidInput = document.createElement("input");
                                     pidInput.type = "hidden";
