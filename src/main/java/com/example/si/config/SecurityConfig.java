@@ -30,7 +30,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/v1/admin-category").permitAll()
                 .requestMatchers("/v1/product/**").permitAll()
                 .requestMatchers("/grtImage").permitAll()
-                .requestMatchers("/v1/liked/{id}").hasAnyAuthority(Role.ADMIN.name())
+                .requestMatchers("/v1/liked/{id}").hasAnyAuthority(Role.USER.name(), Role.ADMIN.name())
                 .requestMatchers("/v1/shop/**").permitAll()
                 .requestMatchers("/v1/basket").hasAnyAuthority(Role.USER.name(), Role.ADMIN.name())
                 .requestMatchers("/v1/order").hasAnyAuthority(Role.USER.name(), Role.ADMIN.name())
