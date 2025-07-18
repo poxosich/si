@@ -59,7 +59,7 @@ public class BasketServiceImpl implements BasketService {
         int totalPrice = 0;
         List<Basket> basketByUserEmail = basketRepository.findBasketByUserEmail(email);
         for (Basket basket : basketByUserEmail) {
-            totalPrice = (int) (totalPrice + basket.getProduct().getPrice());
+            totalPrice += (int) (basket.getProduct().getPrice() * basket.getQuantity());
         }
         return totalPrice;
     }
