@@ -1,13 +1,11 @@
 package com.example.si.controller;
 
 import com.example.si.dto.category.CategoryResponse;
-import com.example.si.dto.liked.LikedResponse;
 import com.example.si.dto.product.ProductResponse;
 import com.example.si.security.SpringUser;
 import com.example.si.service.CategoryService;
 import com.example.si.service.LikedService;
 import com.example.si.service.ProductService;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -18,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 @RequiredArgsConstructor
@@ -65,9 +62,7 @@ public class ShopController {
 
 
     @GetMapping("/delete{id}")
-    @Transactional
     public String deleteLikedById(@PathVariable int id) {
-        System.out.println(id);
         likedService.deleteById(id);
         return "redirect:/v1/shop";
     }

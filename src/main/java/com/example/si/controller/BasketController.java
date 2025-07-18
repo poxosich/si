@@ -1,14 +1,13 @@
 package com.example.si.controller;
 
-import com.example.si.dto.basket.BaskedResponse;
 import com.example.si.security.SpringUser;
 import com.example.si.service.BasketService;
-import com.example.si.service.ProductService;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/v1/basket")
@@ -25,7 +24,6 @@ public class BasketController {
     }
 
     @PostMapping("/delete")
-    @Transactional
     public String deleteBasketById(@RequestParam int productId) {
         basketService.deleteBasketByProductID(productId);
         return "redirect:/v1/";

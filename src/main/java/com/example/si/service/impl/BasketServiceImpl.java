@@ -4,16 +4,15 @@ import com.example.si.dto.basket.BaskedResponse;
 import com.example.si.dto.product.ProductResponse;
 import com.example.si.entity.Basket;
 import com.example.si.entity.User;
-import com.example.si.exeption.BasketNotFoundException;
 import com.example.si.mapper.basket.BasketMapper;
 import com.example.si.mapper.product.ProductMapper;
-import com.example.si.mapper.user.UserMapper;
 import com.example.si.repository.BasketRepository;
 import com.example.si.service.BasketService;
 import com.example.si.service.ProductService;
 import com.example.si.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,6 +64,7 @@ public class BasketServiceImpl implements BasketService {
     }
 
     @Override
+    @Transactional
     public void deleteBasketByProductID(int id) {
         basketRepository.deleteByProductId(id);
     }

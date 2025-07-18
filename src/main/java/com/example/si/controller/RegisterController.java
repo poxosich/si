@@ -8,7 +8,6 @@ import com.example.si.mapper.user.UserMapper;
 import com.example.si.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
@@ -65,7 +64,7 @@ public class RegisterController {
         }
         userByToken.setToken(null);
         userByToken.setActive(true);
-        User getEntity = userMapper.toGetEntity(userByToken);
+        User getEntity = userMapper.toEntity(userByToken);
         userService.onlySave(userMapper.toDtoRequest(getEntity));
         return "login";
     }

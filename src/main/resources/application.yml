@@ -16,6 +16,10 @@ spring:
           auth: true
           starttls:
             enable: true
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 30MB
 
   #liquibase
   liquibase:
@@ -32,7 +36,6 @@ logging:
     rollingpolicy:
       max-file-size: 1MB
 
-
 si:
   massage:
     active:
@@ -42,9 +45,3 @@ si:
   pic:
     package:
       url: C:\Users\User\IdeaProjects\si\projectPic
-
-
-  servlet:
-    multipart:
-      max-file-size: 30MB
-      max-request-size: 30MB

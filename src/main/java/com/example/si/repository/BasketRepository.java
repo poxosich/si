@@ -11,5 +11,6 @@ public interface BasketRepository extends JpaRepository<Basket, Integer> {
     Optional<Basket> findBasketByProductId(Integer id);
 
     List<Basket> findBasketByUserEmail(String email);
+
     void deleteByProductId(int id);
 }

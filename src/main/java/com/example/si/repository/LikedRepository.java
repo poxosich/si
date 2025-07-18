@@ -8,10 +8,9 @@ import java.util.Optional;
 
 public interface LikedRepository extends JpaRepository<Liked, Integer> {
 
-
     List<Liked> findLikedByUserEmail(String email);
-////////////////////////
-   Optional<Liked>  findLikedByProductId(int id);
+
+    Optional<Liked> findLikedByProductId(int id);
 
     void deleteByProductId(int id);
 

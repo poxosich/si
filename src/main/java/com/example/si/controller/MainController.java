@@ -4,23 +4,18 @@ import com.example.si.dto.basket.BaskedResponse;
 import com.example.si.dto.category.CategoryResponse;
 import com.example.si.dto.liked.LikedResponse;
 import com.example.si.dto.product.ProductResponse;
-import com.example.si.entity.User;
 import com.example.si.security.SpringUser;
 import com.example.si.service.BasketService;
 import com.example.si.service.CategoryService;
 import com.example.si.service.LikedService;
 import com.example.si.service.ProductService;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.mapping.Map;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Date;
 import java.util.List;
 
 
@@ -36,7 +31,7 @@ public class MainController {
 
     @GetMapping("/")
     public String home(ModelMap modelMap, @AuthenticationPrincipal SpringUser springUser) {
-        List<ProductResponse> newProducts = productService.findTop10ByOrderBayDataTimeDesc();
+        List<ProductResponse> newProducts = productService.findTop12ByOrderBayDataTimeDesc();
         List<CategoryResponse> allCategory = categoryService.findAllCategory();
         modelMap.put("newProducts", newProducts);
         modelMap.put("allCategory", allCategory);

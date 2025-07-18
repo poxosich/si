@@ -6,7 +6,6 @@ import com.example.si.security.SpringUser;
 import com.example.si.service.CategoryService;
 import com.example.si.service.LikedService;
 import com.example.si.service.ProductService;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -58,16 +57,13 @@ public class ProductController {
 
 
     @GetMapping("/delete{id}")
-    @Transactional
     public String deleteLikedById(@PathVariable int id){
         likedService.deleteById(id);
         return "redirect:/v1/";
     }
 
     @GetMapping("/product-page/delete")
-    @Transactional
     public String productPageDeleteLikedById(@RequestParam("id") int id, @RequestParam("productId") int productId, ModelMap modelMap, @AuthenticationPrincipal SpringUser springUser){
-        System.out.println(id + " " + productId);
         likedService.delete(id);
         ProductResponse productById = productService.findProductById(productId);
         modelMap.put("product", productById);

@@ -11,6 +11,9 @@ import com.example.si.service.CategoryService;
 import com.example.si.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,11 +27,12 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
+
     private final ProductMapper productMapper;
     private final ProductRepository productRepository;
     private final CategoryService categoryService;
     private final CategoryMapper categoryMapper;
-    private static final String MASSAGE = "is Empty";
+    private static final int PAGE_SIZE = 12;
 
     @Value("${si.pic.package.url}")
     private String path;
@@ -37,7 +41,7 @@ public class ProductServiceImpl implements ProductService {
     public ProductResponse save(String name, String price, String category, String description, int quantity, MultipartFile multipartFile) {
         String picture;
         if (multipartFile == null || multipartFile.isEmpty()) {
-            throw new RuntimeException(MASSAGE);
+            throw new RuntimeException("Is Empty");
         }
         picture = System.currentTimeMillis() + " " + multipartFile.getOriginalFilename();
         File file = new File(path, picture);
@@ -60,8 +64,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductResponse> findTop10ByOrderBayDataTimeDesc() {
-        List<Product> top10ByOrderByTimestampDesc = productRepository.findTop12ByOrderByDataTimeDesc();
+    public List<ProductResponse> findTop12ByOrderBayDataTimeDesc() {
+        PageRequest pageRequest = PageRequest.of(0, PAGE_SIZE).withSort(Sort.by(Sort.Direction.DESC, "dataTime"));
+        Page<Product> top10ByOrderByTimestampDesc = productRepository.findAll(pageRequest);
         List<ProductResponse> productResponses = new ArrayList<>();
         for (Product product : top10ByOrderByTimestampDesc) {
             productResponses.add(productMapper.toDto(product));
@@ -76,7 +81,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductResponse> findProductsByCategoryId(int id) {
-        List<Product> productsByCategoryId = productRepository.findProductsByCategory_Id(id);
+        List<Product> productsByCategoryId = productRepository.findProductsByCategoryId(id);
         List<ProductResponse> productByCategory = new ArrayList<>();
         for (Product product : productsByCategoryId) {
             productByCategory.add(productMapper.toDto(product));
@@ -112,6 +117,5 @@ public class ProductServiceImpl implements ProductService {
         }
         return searchProducts;
     }
-
 
 }

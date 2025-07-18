@@ -8,10 +8,10 @@ import java.util.Optional;
 
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
-    List<Product> findTop12ByOrderByDataTimeDesc();
-    List<Product> findProductsByCategory_Id(int id);
+    List<Product> findProductsByCategoryId(int id);
 
-   Optional<Product> findProductById(int id);
+    Optional<Product> findProductById(int id);
+
     List<Product> findTop10ByNameContainingOrderByIdDesc(String namePart);
 
 }

@@ -17,5 +17,4 @@ public interface LikedService {
 
     void delete(int id);
 
-
 }

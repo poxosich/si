@@ -14,9 +14,9 @@ import com.example.si.service.BasketService;
 import com.example.si.service.LikedService;
 import com.example.si.service.ProductService;
 import com.example.si.service.UserService;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 
 import java.util.ArrayList;
@@ -62,11 +62,13 @@ public class LikedServiceImpl implements LikedService {
     }
 
     @Override
+    @Transactional
     public void deleteById(int id) {
         likedRepository.deleteByProductId(id);
     }
 
     @Override
+    @Transactional
     public void checkUser(SpringUser springUser, ModelMap modelMap) {
         if (springUser != null) {
             List<LikedResponse> likedByUserEmail = findLikedByUserEmail(springUser.getUsername());
@@ -82,6 +84,7 @@ public class LikedServiceImpl implements LikedService {
     }
 
     @Override
+    @Transactional
     public void delete(int id) {
         likedRepository.deleteById(id);
     }

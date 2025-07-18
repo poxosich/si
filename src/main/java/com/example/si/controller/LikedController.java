@@ -2,7 +2,6 @@ package com.example.si.controller;
 
 import com.example.si.security.SpringUser;
 import com.example.si.service.LikedService;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -27,7 +26,6 @@ public class LikedController {
     }
 
     @GetMapping("/delete{id}")
-    @Transactional
     public String deleteLikedById(@PathVariable int id) {
         likedService.deleteById(id);
         return "redirect:/v1/";
