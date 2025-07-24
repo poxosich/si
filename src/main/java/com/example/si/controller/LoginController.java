@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/v1/login")
 public class LoginController {
 
+    //перенаправляет вас на страницу входа
     @GetMapping("/login-page")
     public String loginPage(@AuthenticationPrincipal SpringUser springUser) {
         if (springUser != null) {
@@ -22,6 +23,7 @@ public class LoginController {
         return "login";
     }
 
+    //данный метод предназначен для цели куда будет направлен пользователь после входа в систему исходя из его роли.
     @GetMapping("/success")
     public String loginSuccess(@AuthenticationPrincipal SpringUser springUser) {
         User username = springUser.getUser();

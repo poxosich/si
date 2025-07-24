@@ -6,7 +6,6 @@ import com.example.si.entity.Order;
 import com.example.si.entity.User;
 import com.example.si.mapper.order.OrderMapper;
 import com.example.si.mapper.product.ProductMapper;
-import com.example.si.mapper.user.UserMapper;
 import com.example.si.repository.OrderRepository;
 import com.example.si.service.BasketService;
 import com.example.si.service.OrderService;
@@ -29,18 +28,21 @@ public class OrderServiceImpl implements OrderService {
     private final BasketService basketService;
 
 
+    //Данный метод предназначен для хранения купленных товаров в базе данных.(примиком работает с базом данних)
     @Override
     @Transactional
     public OrderResponse saveOrder(int id, int quantity, String email) {
         ProductResponse productById = productService.findProductById(id);
         User byEmail = userService.findByEmail(email);
         Order save = orderRepository.save(Order.builder()
-                .product(productMapper.toGetEntity(productById))
+                .product(productMapper.toResponseEntity(productById))
                 .user(byEmail)
                 .quantity(quantity)
                 .data(LocalDateTime.now())
                 .build());
+        //этот метод удаляет продукт из корзины после покупки
         basketService.deleteBasketByProductID(id);
         return orderMapper.toDto(save);
     }
+
 }

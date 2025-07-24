@@ -2,7 +2,6 @@ package com.example.si.controller;
 
 import com.example.si.dto.user.UserDtoRequest;
 import com.example.si.dto.user.UserDtoResponse;
-import com.example.si.entity.User;
 import com.example.si.exeption.UserNotFoundException;
 import com.example.si.mapper.user.UserMapper;
 import com.example.si.service.UserService;
@@ -21,7 +20,7 @@ public class RegisterController {
     private static final String EMAIL_MASSAGE = "A person with this email address already exists.";
     private static final String ACTIVATION_MAIL = "A verification URL has been sent to your email, please activate it.";
 
-
+    //этот метод предназначен для того, чтобы перенаправить вас на страницу регистрации
     @GetMapping
     public String registerPage(ModelMap modelMap, @RequestParam(value = "success", required = false) Boolean success) {
         modelMap.put("userDtoSave", new UserDtoRequest());
@@ -32,7 +31,7 @@ public class RegisterController {
     }
 
 
-
+     //Этот метод предназначен для регистрации ползвтеля
     @PostMapping
     public String userRegister(@ModelAttribute UserDtoRequest userDtoRequest,
                                @RequestParam("password_cracking") String passwordCracking,
@@ -53,6 +52,8 @@ public class RegisterController {
         return "redirect:/v1/register?success=true";
     }
 
+
+    //этот метод для подтверждени ползвтеля
     @GetMapping("/confirmation")
     public String confirmationEmail(@RequestParam String token) {
         UserDtoResponse userByToken = userService.findUserByToken(token);
@@ -64,8 +65,7 @@ public class RegisterController {
         }
         userByToken.setToken(null);
         userByToken.setActive(true);
-        User getEntity = userMapper.toEntity(userByToken);
-        userService.onlySave(userMapper.toDtoRequest(getEntity));
+        userService.onlySave(userMapper.toRequestDto(userByToken));
         return "login";
     }
 }

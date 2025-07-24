@@ -1,0 +1,50 @@
+#date
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/si
+    username: root
+    password: root
+
+  profiles:
+    active: test
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: javaitspace@gmail.com
+    password: ylfj tpdn xwmw qltd
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 30MB
+
+  #liquibase
+  liquibase:
+    change-log: classpath*:db/changelog.xml
+
+  #logs
+logging:
+  level:
+    root: info
+    si: debug
+  file:
+    name: C:\Users\User\IdeaProjects\si\logs\si--%d{yyyy-MM-dd-HH-mm-ss}.is.log
+  logback:
+    rollingpolicy:
+      max-file-size: 1MB
+
+si:
+  massage:
+    active:
+      url: http://localhost:8080/v1/register/confirmation?token=
+
+
+  pic:
+    package:
+      url: C:\Users\User\IdeaProjects\si\projectPic

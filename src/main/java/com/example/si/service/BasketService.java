@@ -10,8 +10,9 @@ public interface BasketService {
 
     List<BaskedResponse> getAllByUserEmail(String email);
 
-    int total(String email);
+    double total(String email);
 
     void deleteBasketByProductID(int id);
+    Long countByUserEmail(String userEmail);
 
 }

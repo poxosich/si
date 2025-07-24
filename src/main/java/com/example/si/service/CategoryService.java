@@ -9,8 +9,6 @@ import java.util.Optional;
 public interface CategoryService {
     CategoryResponse findCategoryById(Integer integer);
 
-    Category findCategoryByName(String name);
-
     CategoryResponse addCategory(Category category);
 
     List<CategoryResponse> findAllCategory();

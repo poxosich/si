@@ -19,7 +19,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,46 +33,43 @@ public class LikedServiceImpl implements LikedService {
     private final ProductMapper productMapper;
     private final BasketService basketService;
 
+    //этот метод придназначе чтоби сахранить избрнние в базе
     @Override
     @Transactional
     public LikedResponse save(int id, String email) {
+        //Здесь я возьму все liked с ProductId, так как не знаю, сколько их.
         Optional<Liked> likedByProductId = likedRepository.findLikedByProductId(id);
         if (likedByProductId.isEmpty()) {
             ProductResponse productById = productService.findProductById(id);
             User byEmail = userService.findByEmail(email);
-            Liked save = likedRepository.save(Liked.builder()
-                    .user(byEmail)
-                    .product(productMapper.toGetEntity(productById))
-                    .build());
-            return likedMapper.toDto(save);
+            return likedMapper.toDto(likedRepository.save(Liked.builder().user(byEmail).product(productMapper.toResponseEntity(productById)).build()));
         }
         deleteById(likedByProductId.get().getProduct().getId());
         return likedMapper.toDto(likedByProductId.get());
     }
 
+    //этот метод возвращает Liked-и с помшю user.email
     @Override
     public List<LikedResponse> findLikedByUserEmail(String email) {
         List<Liked> likedByUserEmail = likedRepository.findLikedByUserEmail(email);
-        List<LikedResponse> likedByUserEmailResp = new ArrayList<>();
-        for (Liked liked : likedByUserEmail) {
-            likedByUserEmailResp.add(likedMapper.toDto(liked));
-        }
-        return likedByUserEmailResp;
+        return likedMapper.toDtoList(likedByUserEmail);
     }
 
+    //удалю liked с помшю ProductId.
     @Override
     @Transactional
     public void deleteById(int id) {
         likedRepository.deleteByProductId(id);
     }
 
+    //этот метод будет отправлять только те данные, которые будут видны толко авторизовнму пользователю.
     @Override
     @Transactional
     public void checkUser(SpringUser springUser, ModelMap modelMap) {
         if (springUser != null) {
             List<LikedResponse> likedByUserEmail = findLikedByUserEmail(springUser.getUsername());
             List<BaskedResponse> allByUserEmail = basketService.getAllByUserEmail(springUser.getUsername());
-            int total = basketService.total(springUser.getUsername());
+            double total = basketService.total(springUser.getUsername());
             modelMap.put("liked", likedByUserEmail);
             modelMap.put("likedSize", likedByUserEmail.size());
             modelMap.put("basketSize", allByUserEmail.size());
@@ -83,9 +79,19 @@ public class LikedServiceImpl implements LikedService {
         }
     }
 
+    //этот метод предназначен чтоби удалить избрнние из бази с помшю ID
     @Override
     @Transactional
     public void delete(int id) {
         likedRepository.deleteById(id);
     }
+
+
+    //палучаю кличства избрнних продуктв (спомшю email ползвтела)
+    @Override
+    public long countByUserEmail(String email) {
+        return likedRepository.countByUserEmail(email);
+    }
+
+
 }

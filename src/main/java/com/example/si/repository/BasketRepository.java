@@ -13,4 +13,6 @@ public interface BasketRepository extends JpaRepository<Basket, Integer> {
     List<Basket> findBasketByUserEmail(String email);
 
     void deleteByProductId(int id);
+
+    long countByUserEmail(String userEmail);
 }

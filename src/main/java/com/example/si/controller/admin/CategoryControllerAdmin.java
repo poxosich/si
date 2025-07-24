@@ -20,6 +20,7 @@ public class CategoryControllerAdmin {
 
     private final CategoryService categoryService;
 
+    //Добавление категории
     @PostMapping
     public ResponseEntity<CategoryResponse> addCategory(@RequestBody Category category) {
         return ResponseEntity.ok(categoryService.addCategory(category));

@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 public class MailMessageService {
     private final JavaMailSender javaMailSender;
 
+
+    //предназначен для отправки письма
     @Async
     public void sent(String to, String subject, String massage) {
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();

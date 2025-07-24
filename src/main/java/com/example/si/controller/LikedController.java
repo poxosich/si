@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LikedController {
     private final LikedService likedService;
 
-
+    //дабавление продукта в liked
     @GetMapping("/{id}")
     public String addLikedProduct(@PathVariable int id, @AuthenticationPrincipal SpringUser springUser) {
         if (springUser != null) {
@@ -25,6 +25,7 @@ public class LikedController {
         return "redirect:/v1/";
     }
 
+    // удалю liked
     @GetMapping("/delete{id}")
     public String deleteLikedById(@PathVariable int id) {
         likedService.deleteById(id);

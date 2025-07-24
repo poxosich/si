@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
     private final MailMessageService mailMessageService;
     private final UserMapper userMapper;
 
-
+     //этот метод придназначен для реристраци ползвтеля(если все нармално)
     @Override
     public UserDtoResponse save(UserDtoRequest userDtoRequest) {
         String token = UUID.randomUUID().toString();
@@ -43,12 +43,14 @@ public class UserServiceImpl implements UserService {
         return userMapper.toDto(saveUser);
     }
 
+    //Я ишу пользователя по его email.
     @Override
     public User findByEmail(String email) {
         return userRepository.findByEmail(email).
                 orElseThrow(() -> new UserNotFoundException("not find"));
     }
 
+    //ишем User с помшю токен
     @Override
     public UserDtoResponse findUserByToken(String token) {
         Optional<User> userByToken = userRepository.findUserByToken(token);
@@ -58,11 +60,11 @@ public class UserServiceImpl implements UserService {
         throw new UserNotFoundException("not found");
     }
 
+    //для обнавлени user
     @Override
     public void onlySave(UserDtoRequest userDtoRequest) {
         User byEmail = findByEmail(userDtoRequest.getEmail());
         userDtoRequest.setPassword(byEmail.getPassword());
         userRepository.save(userMapper.toEntity(userDtoRequest));
-
     }
 }

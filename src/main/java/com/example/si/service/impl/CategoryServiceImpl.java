@@ -21,6 +21,7 @@ public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
     private final CategoryMapper categoryMapper;
 
+    //биру категори с помшю Id
     @Override
     public CategoryResponse findCategoryById(Integer id) {
         Optional<Category> categoryById = categoryRepository.findCategoryById(id);
@@ -32,12 +33,6 @@ public class CategoryServiceImpl implements CategoryService {
 
 
     @Override
-    public Category findCategoryByName(String name) {
-        return categoryRepository.findCategoryByName(name)
-                .orElseThrow(() -> new CategoryNotFoundException("Category not found: " + name));
-    }
-
-    @Override
     public CategoryResponse addCategory(Category category) {
         if (categoryRepository.findCategoryByName(category.getName()).isPresent()) {
             throw new CategoryFoundException("Category already exists: " + category.getName());
@@ -45,13 +40,10 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryMapper.toDto(categoryRepository.save(category));
     }
 
+    //с помшю этого метода вазврашаем все категори
     @Override
     public List<CategoryResponse> findAllCategory() {
         List<Category> all = categoryRepository.findAll();
-        List<CategoryResponse> allResponse = new ArrayList<>();
-        for (Category category : all) {
-            allResponse.add(categoryMapper.toDto(category));
-        }
-        return allResponse;
+        return categoryMapper.toDtoList(all);
     }
 }

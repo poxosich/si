@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class BasketController {
     private final BasketService basketService;
 
+    // когда кладешь продукт в корзину
     @PostMapping
     public String saveBasket(@RequestParam int productId, int quantity, @AuthenticationPrincipal SpringUser springUser) {
         if (springUser != null) {
@@ -23,6 +24,7 @@ public class BasketController {
         return "redirect:/v1/product/page/" + productId;
     }
 
+    //удаление продукта с помошью ID продукта
     @PostMapping("/delete")
     public String deleteBasketById(@RequestParam int productId) {
         basketService.deleteBasketByProductID(productId);

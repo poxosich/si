@@ -29,6 +29,7 @@ public class MainController {
     private final LikedService likedService;
     private final BasketService basketService;
 
+    //главни страница
     @GetMapping("/")
     public String home(ModelMap modelMap, @AuthenticationPrincipal SpringUser springUser) {
         List<ProductResponse> newProducts = productService.findTop12ByOrderBayDataTimeDesc();
@@ -38,10 +39,10 @@ public class MainController {
         if (springUser != null) {
             List<LikedResponse> likedByUserEmail = likedService.findLikedByUserEmail(springUser.getUsername());
             List<BaskedResponse> allByUserEmail = basketService.getAllByUserEmail(springUser.getUsername());
-            int total = basketService.total(springUser.getUsername());
+            double total = basketService.total(springUser.getUsername());
             modelMap.put("liked", likedByUserEmail);
-            modelMap.put("likedSze", likedByUserEmail.size());
-            modelMap.put("basketSize", allByUserEmail.size());
+            modelMap.put("likedSze", likedService.countByUserEmail(springUser.getUsername()));
+            modelMap.put("basketSize", basketService.countByUserEmail(springUser.getUsername()));
             modelMap.put("basket", allByUserEmail);
             modelMap.put("total", total);
             modelMap.put("check", true);

@@ -17,9 +17,11 @@ public class PictureController {
     @Value("${si.pic.package.url}")
     private String path;
 
+    //этот метод предназначен для отображения изображений в браузере
     @GetMapping(value = "/grtImage", produces = MediaType.IMAGE_JPEG_VALUE)///
     @ResponseBody
     public byte[] getImage(@RequestParam(name = "picture") String picture) throws IOException {
+        //из переданного с фронта имени файла и заранее заданного пути получаем изображение, преобразуем его в массив байтов и отправляем обратно
         File file = new File(path, picture);
         if (file.exists()) {
             return IOUtils.toByteArray(new FileInputStream(file));

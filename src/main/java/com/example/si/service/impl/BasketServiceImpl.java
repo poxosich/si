@@ -14,7 +14,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,7 +26,7 @@ public class BasketServiceImpl implements BasketService {
     private final ProductMapper productMapper;
     private final ProductService productService;
 
-
+    // когда кладешь продукт в корзину
     @Override
     public BaskedResponse save(int id, String email, int quantity) {
         Optional<Basket> basketByProductId = basketRepository.findBasketByProductId(id);
@@ -35,7 +34,7 @@ public class BasketServiceImpl implements BasketService {
             ProductResponse productById = productService.findProductById(id);
             User byEmail = userService.findByEmail(email);
             return basketMapper.toDto(basketRepository.save(Basket.builder()
-                    .product(productMapper.toGetEntity(productById))
+                    .product(productMapper.toResponseEntity(productById))
                     .user(byEmail)
                     .quantity(quantity)
                     .build()));
@@ -43,29 +42,36 @@ public class BasketServiceImpl implements BasketService {
         return basketMapper.toDto(basketByProductId.get());
     }
 
+    // этот метод вазврашает все прадукти из Basked с помшю UserEmail
     @Override
     public List<BaskedResponse> getAllByUserEmail(String email) {
         List<Basket> basketByUserEmail = basketRepository.findBasketByUserEmail(email);
-        List<BaskedResponse> findAll = new ArrayList<>();
-        for (Basket basket : basketByUserEmail) {
-            findAll.add(basketMapper.toDto(basket));
-        }
-        return findAll;
+        return basketMapper.toDtoList(basketByUserEmail);
     }
 
+
+    //этот метод вазврашаеть обши цену продуктв каторие находица в карзине
     @Override
-    public int total(String email) {
-        int totalPrice = 0;
+    public double total(String email) {
+        double totalPrice = 0;
         List<Basket> basketByUserEmail = basketRepository.findBasketByUserEmail(email);
         for (Basket basket : basketByUserEmail) {
-            totalPrice += (int) (basket.getProduct().getPrice() * basket.getQuantity());
+            totalPrice += basket.getProduct().getPrice() * basket.getQuantity();
         }
         return totalPrice;
     }
 
+    // удаление Basket с помшю ProductID
     @Override
     @Transactional
     public void deleteBasketByProductID(int id) {
         basketRepository.deleteByProductId(id);
+    }
+
+
+    //биру каличства продуктв из карзине с помшю emil ползвтеля
+    @Override
+    public Long countByUserEmail(String userEmail) {
+        return basketRepository.countByUserEmail(userEmail);
     }
 }

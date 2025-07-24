@@ -17,4 +17,6 @@ public interface LikedService {
 
     void delete(int id);
 
+    long countByUserEmail(String email);
+
 }

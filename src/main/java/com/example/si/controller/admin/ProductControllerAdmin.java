@@ -18,7 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class ProductControllerAdmin {
     private final ProductService productService;
 
-
+    //Добавление продукта
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<ProductResponse> saveProduct(@RequestParam(name = "name") String name,
                                                        @RequestParam(name = "price") String price,
@@ -29,7 +29,7 @@ public class ProductControllerAdmin {
         return ResponseEntity.ok(productService.save(name, price, category, description, quantity, multipartFile));
     }
 
-
+     //Удаление продукта
     @DeleteMapping("/{id}")
     public void deleteProduct(@PathVariable int id) {
         productService.deleteById(id);

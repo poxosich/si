@@ -25,6 +25,8 @@ public class ShopController {
     private final CategoryService categoryService;
     private final LikedService likedService;
 
+
+    //предназначен для перехода на страницу магазина
     @GetMapping
     public String shopPage(ModelMap modelMap, @AuthenticationPrincipal SpringUser springUser) {
         List<ProductResponse> allProduct = productService.getAllProduct();
@@ -36,6 +38,7 @@ public class ShopController {
     }
 
 
+    //Чтобы получить товар по категории на странице магазина
     @GetMapping("/{id}")
     public String productByCategoryId(@PathVariable int id, ModelMap modelMap, @AuthenticationPrincipal SpringUser springUser) {
         List<CategoryResponse> allCategory = categoryService.findAllCategory();
@@ -46,7 +49,7 @@ public class ShopController {
         return "shopPage";
     }
 
-
+    //для добавления избрнних из страници магазин
     @GetMapping("/liked/{id}")
     public String addLikedSopPage(@PathVariable int id, @AuthenticationPrincipal SpringUser springUser, ModelMap modelMap) {
         List<ProductResponse> allProduct = productService.getAllProduct();
@@ -60,19 +63,20 @@ public class ShopController {
         return "shopPage";
     }
 
-
+    //для удалени избрнних для страгиц shop
     @GetMapping("/delete{id}")
     public String deleteLikedById(@PathVariable int id) {
         likedService.deleteById(id);
         return "redirect:/v1/shop";
     }
-    
+
+    //для поиска прадукта (կենկրետ պոիսկն է)
     @GetMapping("/search")
-    public String searchProductByName(@RequestParam String name, ModelMap modelMap){
+    public String searchProductByName(@RequestParam String name, ModelMap modelMap) {
         List<ProductResponse> productByName = productService.findProductByName(name);
         List<CategoryResponse> allCategory = categoryService.findAllCategory();
         modelMap.put("allCategory", allCategory);
         modelMap.put("products", productByName.stream());
-        return "/shopPage";
+        return "shopPage";
     }
 }

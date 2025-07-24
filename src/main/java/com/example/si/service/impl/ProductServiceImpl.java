@@ -3,7 +3,7 @@ package com.example.si.service.impl;
 import com.example.si.dto.product.ProductRequest;
 import com.example.si.dto.product.ProductResponse;
 import com.example.si.entity.Product;
-import com.example.si.exeption.ProductNodFountException;
+import com.example.si.exeption.ProductNotFoundException;
 import com.example.si.mapper.category.CategoryMapper;
 import com.example.si.mapper.product.ProductMapper;
 import com.example.si.repository.ProductRepository;
@@ -19,7 +19,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,6 +36,7 @@ public class ProductServiceImpl implements ProductService {
     @Value("${si.pic.package.url}")
     private String path;
 
+    //этот метов придназначет для сахранени прадукта
     @Override
     public ProductResponse save(String name, String price, String category, String description, int quantity, MultipartFile multipartFile) {
         String picture;
@@ -50,72 +50,52 @@ public class ProductServiceImpl implements ProductService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        Product entity = productMapper.toEntity(ProductRequest.builder()
-                .name(name)
-                .price(Double.parseDouble(price))
-                .category(categoryMapper.toGetEntity(categoryService.findCategoryById(Integer.parseInt(category))))
-                .description(description)
-                .picture(picture)
-                .active(true)
-                .quantity(quantity)
-                .build());
-        Product save = productRepository.save(entity);
-        return productMapper.toDto(save);
+        return productMapper.toDto(productRepository.save(productMapper.toEntity(ProductRequest.builder().name(name).price(Double.parseDouble(price)).category(categoryMapper.toResponseEntity(categoryService.findCategoryById(Integer.parseInt(category)))).description(description).picture(picture).active(true).quantity(quantity).build())));
     }
 
+    //с помощью этого метода findTop12ByOrderBayDataTimeDesc() мы получим последние 12 новых прадуктв
     @Override
     public List<ProductResponse> findTop12ByOrderBayDataTimeDesc() {
         PageRequest pageRequest = PageRequest.of(0, PAGE_SIZE).withSort(Sort.by(Sort.Direction.DESC, "dataTime"));
-        Page<Product> top10ByOrderByTimestampDesc = productRepository.findAll(pageRequest);
-        List<ProductResponse> productResponses = new ArrayList<>();
-        for (Product product : top10ByOrderByTimestampDesc) {
-            productResponses.add(productMapper.toDto(product));
-        }
-        return productResponses;
+        Page<Product> top12ByOrderByTimestampDesc = productRepository.findAll(pageRequest);
+        return productMapper.toDtoList(top12ByOrderByTimestampDesc.getContent());
     }
 
+    //этот метод придназначен для удаление прадукта с помшю Id
     @Override
     public void deleteById(int id) {
         productRepository.deleteById(id);
     }
 
+    //этот метод вазврашает все прадукти с помшю category_Id
     @Override
     public List<ProductResponse> findProductsByCategoryId(int id) {
         List<Product> productsByCategoryId = productRepository.findProductsByCategoryId(id);
-        List<ProductResponse> productByCategory = new ArrayList<>();
-        for (Product product : productsByCategoryId) {
-            productByCategory.add(productMapper.toDto(product));
-        }
-        return productByCategory;
+        return productMapper.toDtoList(productsByCategoryId);
     }
 
+    //биру продукт спомшю ID.
     @Override
     public ProductResponse findProductById(int id) {
         Optional<Product> productById = productRepository.findProductById(id);
         if (productById.isPresent()) {
             return productMapper.toDto(productById.get());
         }
-        throw new ProductNodFountException("not found");
+        throw new ProductNotFoundException("not found");
     }
 
+
+    //этот метод вазврашает все прадукти
     @Override
     public List<ProductResponse> getAllProduct() {
         List<Product> all = productRepository.findAll();
-        List<ProductResponse> allProduct = new ArrayList<>();
-        for (Product product : all) {
-            allProduct.add(productMapper.toDto(product));
-        }
-        return allProduct;
+        return productMapper.toDtoList(all);
     }
 
+    //этот метод возвращает все продукты по названию.
     @Override
     public List<ProductResponse> findProductByName(String name) {
         List<Product> productByName = productRepository.findTop10ByNameContainingOrderByIdDesc(name);
-        List<ProductResponse> searchProducts = new ArrayList<>();
-        for (Product product : productByName) {
-            searchProducts.add(productMapper.toDto(product));
-        }
-        return searchProducts;
+        return productMapper.toDtoList(productByName);
     }
-
 }

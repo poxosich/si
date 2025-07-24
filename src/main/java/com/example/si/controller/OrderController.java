@@ -20,6 +20,7 @@ public class OrderController {
     private final MailMessageService mailMessageService;
     private static final String MASSAGE = "Thank you for your purchase. ;)))";
 
+    //анный метод предназначен для хранения купленны товара в базе данных (торко 1 продукт)
     @PostMapping
     public String saveOneOrder(@RequestParam int productId, @RequestParam int quantity, @AuthenticationPrincipal SpringUser springUser) {
         orderService.saveOrder(productId, quantity, springUser.getUsername());
@@ -27,6 +28,7 @@ public class OrderController {
         return "redirect:/v1/";
     }
 
+    //данный метод предназначен для хранения купленных товаров в базе данных (все сколко есть в карзине)
     @PostMapping("/all")
     public String saveAll(@RequestParam("productIdList") List<Integer> productIds,
                           @RequestParam("quantityList") List<Integer> quantities,

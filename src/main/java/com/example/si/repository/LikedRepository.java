@@ -10,6 +10,8 @@ public interface LikedRepository extends JpaRepository<Liked, Integer> {
 
     List<Liked> findLikedByUserEmail(String email);
 
+    long countByUserEmail(String email);
+
     Optional<Liked> findLikedByProductId(int id);
 
     void deleteByProductId(int id);
