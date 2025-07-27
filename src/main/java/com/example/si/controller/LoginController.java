@@ -28,7 +28,7 @@ public class LoginController {
     public String loginSuccess(@AuthenticationPrincipal SpringUser springUser) {
         User username = springUser.getUser();
         if (username.getRole().equals(Role.ADMIN)) {
-            return "adminHom";
+            return "redirect:/";
         }
         return "redirect:/";
     }

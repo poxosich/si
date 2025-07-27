@@ -10,7 +10,6 @@ import com.example.si.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,7 +23,7 @@ public class CategoryServiceImpl implements CategoryService {
     //биру категори с помшю Id
     @Override
     public CategoryResponse findCategoryById(Integer id) {
-        Optional<Category> categoryById = categoryRepository.findCategoryById(id);
+        Optional<Category> categoryById = categoryRepository.findById(id);
         if (categoryById.isPresent()) {
             return categoryMapper.toDto(categoryById.get());
         }

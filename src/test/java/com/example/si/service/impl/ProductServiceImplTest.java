@@ -69,7 +69,7 @@ class ProductServiceImplTest {
         when(multipartFile.getOriginalFilename()).thenReturn(originalFileName);
         doNothing().when(multipartFile).transferTo(any(File.class));
 
-        when(categoryRepository.findCategoryById(Integer.parseInt(category))).thenReturn(Optional.of(cate));
+        when(categoryRepository.findById(Integer.parseInt(category))).thenReturn(Optional.of(cate));
         when(categoryMapper.toDto(cate)).thenReturn(categoryResponse);
         when(productMapper.toEntity(any(ProductRequest.class))).thenReturn(product);
         when(productRepository.save(product)).thenReturn(product);

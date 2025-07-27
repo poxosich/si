@@ -35,7 +35,7 @@ class CategoryServiceImplTest {
         Integer id = 3;
         Category category = new Category();
         CategoryResponse categoryResponse = new CategoryResponse();
-        when(categoryRepository.findCategoryById(id)).thenReturn(Optional.of(category));
+        when(categoryRepository.findById(id)).thenReturn(Optional.of(category));
         when(categoryService.findCategoryById(id)).thenReturn(categoryResponse);
 
         CategoryResponse categoryById = categoryService.findCategoryById(id);
@@ -49,10 +49,10 @@ class CategoryServiceImplTest {
     void findCategoryByIdIsEmpty() {
         Integer id = 3;
 
-        when(categoryRepository.findCategoryById(id)).thenReturn(Optional.empty());
+        when(categoryRepository.findById(id)).thenReturn(Optional.empty());
 
         assertThrows(CategoryNotFoundException.class, () -> categoryService.findCategoryById(id));
-        verify(categoryRepository).findCategoryById(id);
+        verify(categoryRepository).findById(id);
         verifyNoInteractions(categoryMapper);
 
     }
