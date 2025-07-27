@@ -38,8 +38,7 @@ class ProductControllerTest {
 
     @MockBean
     LikedService likedService;
-
-/// ////////////////////////
+    
 
 Authentication setSpringUser() {
     User user = new User();
@@ -57,7 +56,7 @@ Authentication setSpringUser() {
     @Test
     void getProductsByCategoryId() throws Exception {
         int categoryId = 1;
-        mockMvc.perform(get("/v1/product/{id}", categoryId)
+        mockMvc.perform(get("/product/{id}", categoryId)
                         .with(user("arsencholakyan@example.com").roles("USER")))
                 .andExpect(status().isOk())
                 .andExpect(view().name("home"))
@@ -74,7 +73,7 @@ Authentication setSpringUser() {
 
         when(productService.findProductById(productId)).thenReturn(mockProduct);
 
-        mockMvc.perform(get("/v1/product/page/{id}", productId)
+        mockMvc.perform(get("/product/page/{id}", productId)
                         .with(user("user@example.com").roles("USER")))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("product"));
@@ -89,7 +88,7 @@ Authentication setSpringUser() {
 
         when(productService.findProductById(id)).thenReturn(mockProduct);
 
-        mockMvc.perform(get("/v1/product/liked/{id}", id)
+        mockMvc.perform(get("/product/liked/{id}", id)
                         .with(csrf()))
                 .andExpect(model().attributeExists("product"))
                 .andExpect(view().name("productPage"));
@@ -105,7 +104,7 @@ Authentication setSpringUser() {
 
         when(productService.findProductById(id)).thenReturn(product);
 
-        mockMvc.perform(get("/v1/product/liked/{id}", id)
+        mockMvc.perform(get("/product/liked/{id}", id)
                         .with(authentication(setSpringUser())))
                 .andExpect(status().isOk())
                 .andExpect(view().name("productPage"))
@@ -115,9 +114,9 @@ Authentication setSpringUser() {
     @Test
     void deleteLikedById() throws Exception {
         int id = 2;
-        mockMvc.perform(get("/v1/product/delete{id}", id))
+        mockMvc.perform(get("/product/delete{id}", id))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/v1/"));
+                .andExpect(redirectedUrl("/"));
     }
 
     @Test
@@ -129,7 +128,7 @@ Authentication setSpringUser() {
 
         when(productService.findProductById(id)).thenReturn(product);
 
-        mockMvc.perform(get("/v1/product/product-page/delete")
+        mockMvc.perform(get("/product/product-page/delete")
                         .param("id", String.valueOf(id))
                         .param("productId", String.valueOf(id))
                         .with(authentication(setSpringUser())))

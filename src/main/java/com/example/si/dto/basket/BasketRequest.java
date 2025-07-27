@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class BasketRequest {
+
     private Product product;
     private User user;
     private Integer quantity;

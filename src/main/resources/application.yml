@@ -39,7 +39,7 @@ logging:
 si:
   massage:
     active:
-      url: http://localhost:8080/v1/register/confirmation?token=
+      url: http://localhost:8080/register/confirmation?token=
 
 
   pic:

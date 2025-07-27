@@ -13,6 +13,7 @@ public interface BasketService {
     double total(String email);
 
     void deleteBasketByProductID(int id);
+
     Long countByUserEmail(String userEmail);
 
 }

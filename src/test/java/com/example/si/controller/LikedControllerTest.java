@@ -45,10 +45,10 @@ class LikedControllerTest {
                 springUser.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(auth);
 
-        mockMvc.perform(get("/v1/liked/46"))
+        mockMvc.perform(get("/liked/46"))
 
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/v1/"));
+                .andExpect(redirectedUrl("/"));
         verify(likedService).save(46, springUser.getUsername());
         SecurityContextHolder.clearContext();
 
@@ -56,16 +56,16 @@ class LikedControllerTest {
 
     @Test
     void loginPage_whenAnonymous_returnsLoginView() throws Exception {
-        mockMvc.perform(get("/v1/liked/4"))
+        mockMvc.perform(get("/liked/4"))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/v1/"));
+                .andExpect(redirectedUrl("/"));
     }
 
     @Test
     void deleteLikedById() throws Exception {
         int id = 3;
-        mockMvc.perform(get("/v1/liked/delete" + id))
+        mockMvc.perform(get("/liked/delete" + id))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/v1/"));
+                .andExpect(redirectedUrl("/"));
     }
 }

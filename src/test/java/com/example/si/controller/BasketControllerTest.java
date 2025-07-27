@@ -4,7 +4,6 @@ import com.example.si.entity.Role;
 import com.example.si.entity.User;
 import com.example.si.security.SpringUser;
 import com.example.si.service.BasketService;
-import com.example.si.service.CategoryService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -31,12 +30,12 @@ class BasketControllerTest {
 
     @Test
     void saveBasket() throws Exception {
-        mockMvc.perform(post("/v1/basket")
+        mockMvc.perform(post("/basket")
                         .param("productId", "5")
                         .param("quantity", "2")
                         .with(csrf()))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/v1/product/page/5"));
+                .andExpect(redirectedUrl("/product/page/5"));
     }
 
 
@@ -55,12 +54,12 @@ class BasketControllerTest {
                 springUser.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(auth);
 
-        mockMvc.perform(post("/v1/basket")
+        mockMvc.perform(post("/basket")
                         .param("productId", "5")
                         .param("quantity", "2")
                         .with(csrf()))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/v1/product/page/5"));
+                .andExpect(redirectedUrl("/product/page/5"));
 
         SecurityContextHolder.clearContext();
     }
@@ -68,10 +67,10 @@ class BasketControllerTest {
 
     @Test
     void deleteBasketById() throws Exception {
-      mockMvc.perform(post("/v1/basket/delete")
+      mockMvc.perform(post("/basket/delete")
               .param("productId", "4")
               .with(csrf()))
               .andExpect(status().is3xxRedirection())
-              .andExpect(redirectedUrl("/v1/"));
+              .andExpect(redirectedUrl("/"));
     }
 }

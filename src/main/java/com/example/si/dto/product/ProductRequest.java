@@ -15,18 +15,11 @@ import java.time.LocalDateTime;
 public class ProductRequest {
 
     private String name;
-
     private Double price;
-
     private String picture;
-
     private Category category;
-
     private LocalDateTime dataTime;
-
     private Boolean active;
-
     private String description;
-
     private Integer quantity;
 }

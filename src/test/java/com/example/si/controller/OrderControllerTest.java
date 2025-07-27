@@ -31,7 +31,6 @@ class OrderControllerTest {
 
     @MockBean
     private OrderService orderService;
-///////////////////////////////////////
 
 Authentication setSpringUser() {
     User user = new User();
@@ -47,33 +46,26 @@ Authentication setSpringUser() {
 
     @Test
     void saveOneOrder() throws Exception {
-        OrderResponse mockOrderResponse = new OrderResponse();
 
-        when(orderService.saveOrder(anyInt(), anyInt(), anyString()))
-                .thenReturn(mockOrderResponse);
-
-        mockMvc.perform(post("/v1/order")
+        mockMvc.perform(post("/order")
                         .param("productId", "5")
                         .param("quantity", "2")
                         .with(csrf())
                         .with(authentication(setSpringUser())))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/v1/"));
+                .andExpect(redirectedUrl("/"));
     }
 
 
     @Test
     void saveAll() throws Exception {
-        OrderResponse mockOrderResponse = new OrderResponse();
-        when(orderService.saveOrder(anyInt(), anyInt(), anyString()))
-                .thenReturn(mockOrderResponse);
 
-        mockMvc.perform(post("/v1/order/all")
+        mockMvc.perform(post("/order/all")
                         .param("productIdList", "1", "2", "3")
                         .param("quantityList", "5", "10", "15")
                         .with(authentication(setSpringUser()))
                         .with(csrf()))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/v1/"));
+                .andExpect(redirectedUrl("/"));
     }
 }

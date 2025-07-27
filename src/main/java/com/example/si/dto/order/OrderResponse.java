@@ -18,10 +18,7 @@ public class OrderResponse {
 
     private Integer id;
     private Product product;
-
     private User user;
-
     private Integer quantity;
-
     private LocalDateTime data;
 }

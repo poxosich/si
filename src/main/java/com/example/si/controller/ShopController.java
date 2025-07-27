@@ -19,12 +19,11 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/v1/shop")
+@RequestMapping("/shop")
 public class ShopController {
     private final ProductService productService;
     private final CategoryService categoryService;
     private final LikedService likedService;
-
 
     //предназначен для перехода на страницу магазина
     @GetMapping
@@ -67,7 +66,7 @@ public class ShopController {
     @GetMapping("/delete{id}")
     public String deleteLikedById(@PathVariable int id) {
         likedService.deleteById(id);
-        return "redirect:/v1/shop";
+        return "redirect:/shop";
     }
 
     //для поиска прадукта (կենկրետ պոիսկն է)

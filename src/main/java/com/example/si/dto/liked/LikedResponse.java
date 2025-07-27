@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class LikedResponse {
+
     private Integer id;
     private Product product;
     private User user;

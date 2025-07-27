@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/v1/liked")
+@RequestMapping("/liked")
 public class LikedController {
     private final LikedService likedService;
 
@@ -22,14 +22,13 @@ public class LikedController {
         if (springUser != null) {
             likedService.save(id, springUser.getUsername());
         }
-        return "redirect:/v1/";
+        return "redirect:/";
     }
 
     // удалю liked
     @GetMapping("/delete{id}")
     public String deleteLikedById(@PathVariable int id) {
         likedService.deleteById(id);
-        return "redirect:/v1/";
+        return "redirect:/";
     }
-
 }

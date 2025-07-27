@@ -12,6 +12,7 @@ public interface CategoryMapper {
     CategoryResponse toDto(Category category);
 
     Category toResponseEntity(CategoryResponse categoryResponse);
+
     List<CategoryResponse> toDtoList(List<Category> categories);
 
 }

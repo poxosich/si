@@ -10,7 +10,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     List<Product> findProductsByCategoryId(int id);
 
-    Optional<Product> findProductById(int id);
+    Optional<Product> findById(int id);
 
     List<Product> findTop10ByNameContainingOrderByIdDesc(String namePart);
 

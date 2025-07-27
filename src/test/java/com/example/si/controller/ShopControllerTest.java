@@ -34,7 +34,7 @@ class ShopControllerTest {
     private  CategoryService categoryService;
      @MockBean
     private  LikedService likedService;
-/// /////////////////////
+
 
 
 Authentication setSpringUser() {
@@ -51,7 +51,7 @@ Authentication setSpringUser() {
 
     @Test
     void shopPage() throws Exception {
-        mockMvc.perform(get("/v1/shop")
+        mockMvc.perform(get("/shop")
                 .with(authentication(setSpringUser())))
                 .andExpect(status().isOk())
                 .andExpect(view().name("shopPage"))
@@ -63,7 +63,7 @@ Authentication setSpringUser() {
     void productByCategoryId() throws Exception {
         int id = 4;
 
-        mockMvc.perform(get("/v1/shop/{id}", id)
+        mockMvc.perform(get("/shop/{id}", id)
                         .with(authentication(setSpringUser())))
                 .andExpect(status().isOk())
                 .andExpect(view().name("shopPage"))
@@ -74,7 +74,7 @@ Authentication setSpringUser() {
     @Test
     void addLikedSopPage() throws Exception {
         int id = 4;
-        mockMvc.perform(get("/v1/shop/liked/{id}", id))
+        mockMvc.perform(get("/shop/liked/{id}", id))
                 .andExpect(status().isOk())
                 .andExpect(view().name("shopPage"))
                 .andExpect(model().attributeExists("products"))
@@ -86,7 +86,7 @@ Authentication setSpringUser() {
     void addLikedSopPageUserNotNull() throws Exception {
         int id = 4;
 
-        mockMvc.perform(get("/v1/shop/liked/{id}", id)
+        mockMvc.perform(get("/shop/liked/{id}", id)
                         .with(authentication(setSpringUser())))
                 .andExpect(status().isOk())
                 .andExpect(view().name("shopPage"))
@@ -97,14 +97,14 @@ Authentication setSpringUser() {
     @Test
     void deleteLikedById() throws Exception {
         int id = 8;
-        mockMvc.perform(get("/v1/shop/delete{id}", id))
+        mockMvc.perform(get("/shop/delete{id}", id))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/v1/shop"));
+                .andExpect(redirectedUrl("/shop"));
     }
 
     @Test
     void searchProductByName() throws Exception {
-        mockMvc.perform(get("/v1/shop/search")
+        mockMvc.perform(get("/shop/search")
                         .param("name", "Arsen"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("shopPage"))

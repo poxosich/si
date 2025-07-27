@@ -18,7 +18,7 @@ public class PictureController {
     private String path;
 
     //этот метод предназначен для отображения изображений в браузере
-    @GetMapping(value = "/grtImage", produces = MediaType.IMAGE_JPEG_VALUE)///
+    @GetMapping(value = "/getImage", produces = MediaType.IMAGE_JPEG_VALUE)
     @ResponseBody
     public byte[] getImage(@RequestParam(name = "picture") String picture) throws IOException {
         //из переданного с фронта имени файла и заранее заданного пути получаем изображение, преобразуем его в массив байтов и отправляем обратно

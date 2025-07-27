@@ -22,7 +22,7 @@ class MainControllerTest {
 
     @Test
     public void testHomeWithoutUser() throws Exception {
-        mockMvc.perform(get("/v1/"))
+        mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("home"))
                 .andExpect(model().attributeExists("newProducts"))
@@ -46,7 +46,7 @@ class MainControllerTest {
                 springUser.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(auth);
 
-        mockMvc.perform(get("/v1/"))
+        mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("home"))
                 .andExpect(model().attributeExists("newProducts"))

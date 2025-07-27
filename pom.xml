@@ -4,6 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -12,10 +13,10 @@
     </parent>
 
     <groupId>com.example</groupId>
-    <artifactId>company-employee-Spring2</artifactId>
+    <artifactId>online-store</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>company-employee-Spring2</name>
-    <description>company-employee-Spring2</description>
+    <name>online-store</name>
+    <description>online-store</description>
 
     <properties>
         <java.version>17</java.version>

@@ -20,7 +20,6 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/v1")
 @RequiredArgsConstructor
 public class MainController {
 
@@ -49,5 +48,4 @@ public class MainController {
         }
         return "home";
     }
-
 }

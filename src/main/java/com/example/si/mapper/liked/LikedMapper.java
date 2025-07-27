@@ -8,6 +8,8 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface LikedMapper {
+
     LikedResponse toDto(Liked liked);
+
     List<LikedResponse> toDtoList(List<Liked> liked);
 }

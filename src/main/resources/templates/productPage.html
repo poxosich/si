@@ -35,7 +35,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-inverse bg-black">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/v1/"><img src="/style/images/logo-light.png" alt=""></a>
+        <a class="navbar-brand" href="/"><img src="/style/images/logo-light.png" alt=""></a>
 
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggle-nav-center" aria-controls="navbar-toggle-nav-center" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar top-bar"></span>
@@ -47,10 +47,10 @@
         <div class="collapse navbar-collapse" id="navbar-toggle-nav-center">
             <ul class="navbar-nav m-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/v1/" th:text="#{home.home}">Home</a>
+                    <a class="nav-link" href="/" th:text="#{home.home}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/v1/shop" th:text="#{home.shop}">Shop</a>
+                    <a class="nav-link" href="/shop" th:text="#{home.shop}">Shop</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#x" id="dropdown-stacked" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" th:text="#{home.categories}"></a>
@@ -94,7 +94,7 @@
     </div><!-- / container-fluid -->
 </nav>
 
-<header class="page-header bg-img jarallax" data-jarallax="" data-speed="0.8" th:style="'background-image: url(\'/grtImage?picture=' + ${product.picture} + '\')'">
+<header class="page-header bg-img jarallax" data-jarallax="" data-speed="0.8" th:style="'background-image: url(\'/getImage?picture=' + ${product.picture} + '\')'">
     <div class="container-fluid">
         <div class="header-content pb-0">
             <h1 class="page-title ml-0 mb-0 fw-bold" th:text="${product.name}"></h1>
@@ -110,7 +110,7 @@
                 <div class="col-lg-6 tablet-lg-top-30 page-content">
                     <div id="product-swiper" class="swiper-container">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img th:src="@{/grtImage(picture=${product.picture})}" alt=""></div>
+                            <div class="swiper-slide"><img th:src="@{/getImage(picture=${product.picture})}" alt=""></div>
 
                         </div><!-- / swiper-wrapper -->
                         <!-- Add Arrows -->
@@ -124,7 +124,7 @@
                     <p class="fs-24 mb-15" th:text="${product.price} + '$'"></p>
                     <p class="m-y-40">Aenean consectetur ipsum non quam rutrum lobortis. In volutpat volutpat eros, et laoreet libero iaculis id. Pellentesque sed condimentum ipsum. Aliquam erat volutpat cras finibus. Suspendisse vitae mauris ac ligula ornare tincidunt. Nulla facilisi. Nullam nec elit vehicula, auctor ipsum eget, tristique urna. Mauris volutpat erat sed ligula vehicula consectetur.</p>
                     <div class="d-flex align-items-center">
-                        <form action="/v1/basket" method="post" class="mr-2 d-inline-block">
+                        <form action="/basket" method="post" class="mr-2 d-inline-block">
                             <input type="hidden" name="productId" th:value="${product.id}"/>
 
                             <div class="input-group mb-0" >
@@ -146,7 +146,7 @@
                         </form>
 
                         <li class="nav-item d-inline-block middle-icon relative ml-2" th:if="${check}">
-                            <a th:href="@{/v1/product/liked/{id}(id=${product.id})}">
+                            <a th:href="@{/product/liked/{id}(id=${product.id})}">
                                 <span>&#129293;</span>
                             </a>
                         </li>
@@ -503,14 +503,14 @@
                         <div class="col-md-10 col-lg-8 col-xl-6 m-x-auto">
                             <ul class="list-unstyled wishlist-list">
                                 <li class="wishlist-item" th:each="likedl : ${liked}">
-                                    <a th:href="@{/v1/product/page/{id}(id=${likedl.product.id})}">
-                                        <img th:src="@{/grtImage(picture=${likedl.product.picture})}" alt="">
+                                    <a th:href="@{/product/page/{id}(id=${likedl.product.id})}">
+                                        <img th:src="@{/getImage(picture=${likedl.product.picture})}" alt="">
                                     </a>
                                     <div class="wishlist-info">
-                                        <a th:href="@{/v1/product/page/{id}(id=${likedl.product.id})}" class="fs-20 fw-bold" th:text="${likedl.product.name}">Product Name</a>
+                                        <a th:href="@{/product/page/{id}(id=${likedl.product.id})}" class="fs-20 fw-bold" th:text="${likedl.product.name}">Product Name</a>
                                         <p class="fs-12 mb-5"><b>Category:</b> <span th:text="${likedl.product.category.name}">Category Name</span></p>
                                         <p class="fs-12 mb-15"><b>Price:</b> $<span th:text="${likedl.product.price}">19</span></p>
-                                        <a th:href="@{/v1/product/product-page/delete(id=${likedl.id}, productId=${product.id})}" class="wishlist-remove">
+                                        <a th:href="@{/product/product-page/delete(id=${likedl.id}, productId=${product.id})}" class="wishlist-remove">
                                             <span>&#215;</span>
                                         </a>
                                     </div><!-- / wishlist-info -->
@@ -551,7 +551,7 @@
 
                             <div class="table-overflow" data-aos="fade-up">
                                 <!-- Checkout Form -->
-                                <form id="checkout-form" action="/v1/order/all" method="post">
+                                <form id="checkout-form" action="/order/all" method="post">
                                     <table class="table table-xl align-middle text-center">
                                         <thead class="thead-light">
                                         <tr>
@@ -566,8 +566,8 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="me-3">
-                                                        <a th:href="@{/v1/product/page/{id}(id=${bask.product.id})}">
-                                                            <img th:src="@{/grtImage(picture=${bask.product.picture})}"
+                                                        <a th:href="@{/product/page/{id}(id=${bask.product.id})}">
+                                                            <img th:src="@{/getImage(picture=${bask.product.picture})}"
                                                                  alt="Product image"
                                                                  style="width: 80px; height: 80px; object-fit: contain; border-radius: 8px;">
                                                         </a>
@@ -640,7 +640,7 @@
                                     // Create form dynamically
                                     const form = document.createElement("form");
                                     form.method = "POST";
-                                    form.action = "/v1/order";
+                                    form.action = "/order";
 
                                     const pidInput = document.createElement("input");
                                     pidInput.type = "hidden";
@@ -665,7 +665,7 @@
 
                                     const form = document.createElement("form");
                                     form.method = "POST";
-                                    form.action = "/v1/basket/delete";
+                                    form.action = "/basket/delete";
 
                                     const pidInput = document.createElement("input");
                                     pidInput.type = "hidden";

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-@RequestMapping("/v1/order")
+@RequestMapping("/order")
 @RequiredArgsConstructor
 public class OrderController {
     private final OrderService orderService;
@@ -25,7 +25,7 @@ public class OrderController {
     public String saveOneOrder(@RequestParam int productId, @RequestParam int quantity, @AuthenticationPrincipal SpringUser springUser) {
         orderService.saveOrder(productId, quantity, springUser.getUsername());
         mailMessageService.sent(springUser.getUsername(), "Shopping", MASSAGE);
-        return "redirect:/v1/";
+        return "redirect:/";
     }
 
     //данный метод предназначен для хранения купленных товаров в базе данных (все сколко есть в карзине)
@@ -37,7 +37,6 @@ public class OrderController {
             orderService.saveOrder(productIds.get(i), quantities.get(i), springUser.getUsername());
         }
         mailMessageService.sent(springUser.getUsername(), "Shopping", MASSAGE);
-        return "redirect:/v1/";
+        return "redirect:/";
     }
-
 }

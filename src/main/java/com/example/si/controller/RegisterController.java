@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/v1/register")
+@RequestMapping("/register")
 public class RegisterController {
     private final UserService userService;
     private final UserMapper userMapper;
@@ -49,19 +49,18 @@ public class RegisterController {
         } catch (UserNotFoundException ignored) {
         }
         userService.save(userDtoRequest);
-        return "redirect:/v1/register?success=true";
+        return "redirect:/register?success=true";
     }
-
 
     //этот метод для подтверждени ползвтеля
     @GetMapping("/confirmation")
     public String confirmationEmail(@RequestParam String token) {
         UserDtoResponse userByToken = userService.findUserByToken(token);
         if (userByToken == null) {
-            return "redirect:/v1/";
+            return "redirect:/";
         }
         if (userByToken.getActive()) {
-            return "redirect:/v1/";
+            return "redirect:/";
         }
         userByToken.setToken(null);
         userByToken.setActive(true);

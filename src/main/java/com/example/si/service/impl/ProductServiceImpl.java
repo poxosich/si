@@ -77,7 +77,7 @@ public class ProductServiceImpl implements ProductService {
     //биру продукт спомшю ID.
     @Override
     public ProductResponse findProductById(int id) {
-        Optional<Product> productById = productRepository.findProductById(id);
+        Optional<Product> productById = productRepository.findById(id);
         if (productById.isPresent()) {
             return productMapper.toDto(productById.get());
         }

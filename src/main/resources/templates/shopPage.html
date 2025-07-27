@@ -34,7 +34,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-inverse bg-black">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/v1/"><img src="/style/images/logo-light.png" alt=""></a>
+        <a class="navbar-brand" href="/"><img src="/style/images/logo-light.png" alt=""></a>
 
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbar-toggle-nav-center" aria-controls="navbar-toggle-nav-center"
@@ -48,7 +48,7 @@
         <div class="collapse navbar-collapse" id="navbar-toggle-nav-center">
             <ul class="navbar-nav m-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/v1/" th:text="#{home.home}"></a>
+                    <a class="nav-link" href="/" th:text="#{home.home}"></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="shop-dark.html" th:text="#{home.shop}"></a>
@@ -59,7 +59,7 @@
                     <div class="dropdown-menu mega-menu two-columns drop-to-center" aria-labelledby="dropdown-stacked">
                         <div class="row">
                             <div class="col-lg-6 sub-menu" th:each="category : ${allCategory}">
-                                <a class="dropdown-item" th:href="@{/v1/shop/{id}(id=${category.id})}"
+                                <a class="dropdown-item" th:href="@{/shop/{id}(id=${category.id})}"
                                    th:text="${category.name}"></a>
                             </div><!-- / sub-menu -->
                         </div><!-- / row -->
@@ -110,14 +110,14 @@
 
                     <div class="button-group filters-button-group text-center">
                         <a class="btn filter-btn"
-                           href="/v1/shop"
+                           href="/shop"
                            th:style="${activeCategoryId == null or activeCategoryId == 0} ? 'background-color: color: white;' : ''">
                             ALL
                         </a>
 
                         <a class="btn filter-btn"
                            th:each="category : ${allCategory}"
-                           th:href="@{/v1/shop/{id}(id=${category.id})}"
+                           th:href="@{/shop/{id}(id=${category.id})}"
                            th:text="${category.name}"
                            th:style="${activeCategoryId == category.id} ? 'background-color: red; color: white;' : ''">
                         </a>
@@ -151,13 +151,13 @@
                             <div class="product">
                                 <figure class="shop-item">
                                     <div class="hovereffect">
-                                        <a th:href="@{/v1/product/page/{id}(id=${product.id})}"><img
-                                                class="img-responsive" th:src="@{/grtImage(picture=${product.picture})}"
+                                        <a th:href="@{/product/page/{id}(id=${product.id})}"><img
+                                                class="img-responsive" th:src="@{/getImage(picture=${product.picture})}"
                                                 alt="" style="width: 450px; height: 200px; object-fit: cover;"></a>
 
                                         <div class="overlay">
                                             <div class="hover-icons" th:if="${check}">
-                                                <a th:href="@{/v1/shop/liked/{id}(id=${product.id})}"
+                                                <a th:href="@{/shop/liked/{id}(id=${product.id})}"
                                                    class="btn btn-xs btn-icon btn-circle btn-outline-primary"><span>&#9829;</span></a>
                                             </div><!-- / hover-icons -->
 
@@ -166,7 +166,7 @@
                                                     <div class="row v-center">
                                                         <div class="col-8 col-md-7 col-lg-8">
                                                             <div class="product-info">
-                                                                <a th:href="@{/v1/product/page/{id}(id=${product.id})}"
+                                                                <a th:href="@{/product/page/{id}(id=${product.id})}"
                                                                    class="product-title" th:text="${product.name}"></a>
                                                                 <p class="product-cat"
                                                                    th:text="${product.category.name}"></p>
@@ -340,7 +340,7 @@
                 <div class="container text-center">
                     <div class="row full-height align-items-center">
                         <div class="col-md-10 col-lg-8 col-xl-6 m-x-auto">
-                            <form method="get" action="/v1/shop/search">
+                            <form method="get" action="/shop/search">
                                 <div class="input-group mb-0 w-100">
                                     <input type="text" name="name" class="form-control"
                                            placeholder="What are you looking for?">
@@ -494,17 +494,17 @@
                         <div class="col-md-10 col-lg-8 col-xl-6 m-x-auto">
                             <ul class="list-unstyled wishlist-list">
                                 <li class="wishlist-item" th:each="likedl : ${liked}">
-                                    <a th:href="@{/v1/product/page/{id}(id=${likedl.product.id})}">
-                                        <img th:src="@{/grtImage(picture=${likedl.product.picture})}" alt="">
+                                    <a th:href="@{/product/page/{id}(id=${likedl.product.id})}">
+                                        <img th:src="@{/getImage(picture=${likedl.product.picture})}" alt="">
                                     </a>
                                     <div class="wishlist-info">
-                                        <a th:href="@{/v1/product/page/{id}(id=${likedl.product.id})}"
+                                        <a th:href="@{/product/page/{id}(id=${likedl.product.id})}"
                                            class="fs-20 fw-bold" th:text="${likedl.product.name}">Product Name</a>
                                         <p class="fs-12 mb-5"><b>Category:</b> <span
                                                 th:text="${likedl.product.category.name}">Category Name</span></p>
                                         <p class="fs-12 mb-15"><b>Price:</b> $<span
                                                 th:text="${likedl.product.price}">19</span></p>
-                                        <a th:href="@{/v1/shop/delete{id}(id=${likedl.product.id})}"
+                                        <a th:href="@{/shop/delete{id}(id=${likedl.product.id})}"
                                            class="wishlist-remove"><span>&#215;</span></a>
                                     </div><!-- / wishlist-info -->
                                 </li><!-- / wishlist-item -->
@@ -544,7 +544,7 @@
 
                             <div class="table-overflow" data-aos="fade-up">
                                 <!-- Checkout Form -->
-                                <form id="checkout-form" action="/v1/order/all" method="post">
+                                <form id="checkout-form" action="/order/all" method="post">
                                     <table class="table table-xl align-middle text-center">
                                         <thead class="thead-light">
                                         <tr>
@@ -559,8 +559,8 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="me-3">
-                                                        <a th:href="@{/v1/product/page/{id}(id=${bask.product.id})}">
-                                                            <img th:src="@{/grtImage(picture=${bask.product.picture})}"
+                                                        <a th:href="@{/product/page/{id}(id=${bask.product.id})}">
+                                                            <img th:src="@{/getImage(picture=${bask.product.picture})}"
                                                                  alt="Product image"
                                                                  style="width: 80px; height: 80px; object-fit: contain; border-radius: 8px;">
                                                         </a>
@@ -633,7 +633,7 @@
                                     // Create form dynamically
                                     const form = document.createElement("form");
                                     form.method = "POST";
-                                    form.action = "/v1/order";
+                                    form.action = "/order";
 
                                     const pidInput = document.createElement("input");
                                     pidInput.type = "hidden";
@@ -658,7 +658,7 @@
 
                                     const form = document.createElement("form");
                                     form.method = "POST";
-                                    form.action = "/v1/basket/delete";
+                                    form.action = "/basket/delete";
 
                                     const pidInput = document.createElement("input");
                                     pidInput.type = "hidden";

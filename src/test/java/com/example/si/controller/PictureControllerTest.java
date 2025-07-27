@@ -37,24 +37,22 @@ class PictureControllerTest {
 
     @Test
     void testGetImage() throws Exception {
-        mockMvc.perform(get("/grtImage")
+        mockMvc.perform(get("/getImage")
                         .param("picture", "test-image.jpg"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.IMAGE_JPEG))
                 .andExpect(result -> {
                     byte[] content = result.getResponse().getContentAsByteArray();
-                    assertTrue(content.length > 0, "Image content should not be empty");
-                });
+                    assertTrue(content.length > 0, "Image content should not be empty");});
     }
 
     @Test
     void testGetImageFileNotFound() throws Exception {
-        mockMvc.perform(get("/grtImage")
+        mockMvc.perform(get("/getImage")
                         .param("picture", "non-existent.jpg"))
                 .andExpect(status().isOk())
                 .andExpect(result -> {
                     byte[] content = result.getResponse().getContentAsByteArray();
-                    assertEquals(0, content.length, "Content length should be zero for non-existent image");
-                });
+                    assertEquals(0, content.length, "Content length should be zero for non-existent image");});
     }
 }

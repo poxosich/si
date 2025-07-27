@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class UserDtoRequest {
+
     private Integer id;
     private String name;
     private String surname;

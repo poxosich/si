@@ -23,7 +23,7 @@
                                 <div class="card-body">
                                     <ul class="nav nav-tabs tab-w-bar bg-dark text-center" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="/v1/login/login-page" role="tab"
+                                            <a class="nav-link active" href="/login/login-page" role="tab"
                                                th:text="#{login.login}"><span>&#128100;</span> </a>
                                         </li>
                                         <li class="nav-item">
@@ -38,7 +38,7 @@
                                             <span th:if="${activationMail != null}" th:text="${activationMail}"
                                                   style="color: green;"></span>
 
-                                            <form method="post" th:action="@{/v1/register}" th:object="${userDtoSave}"
+                                            <form method="post" th:action="@{/register}" th:object="${userDtoSave}"
                                                   class="needs-validation" novalidate>
                                                 <div class="form-group">
                                                     <input type="text" class="form-control" th:field="*{name}"
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                <a class="modal-close" href="/v1/" onclick="window.close();">
+                <a class="modal-close" href="/" onclick="window.close();">
                     <span>&#10006;</span>
                 </a>
             </div>

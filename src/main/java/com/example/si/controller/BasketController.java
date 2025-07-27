@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/v1/basket")
+@RequestMapping("/basket")
 @RequiredArgsConstructor
 public class BasketController {
     private final BasketService basketService;
@@ -21,14 +21,13 @@ public class BasketController {
         if (springUser != null) {
             basketService.save(productId, springUser.getUsername(), quantity);
         }
-        return "redirect:/v1/product/page/" + productId;
+        return "redirect:/product/page/" + productId;
     }
 
     //удаление продукта с помошью ID продукта
     @PostMapping("/delete")
     public String deleteBasketById(@RequestParam int productId) {
         basketService.deleteBasketByProductID(productId);
-        return "redirect:/v1/";
+        return "redirect:/";
     }
-
 }

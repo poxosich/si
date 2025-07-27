@@ -19,7 +19,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/v1/product")
+@RequestMapping("/product")
 public class ProductController {
     private final CategoryService categoryService;
     private final ProductService productService;
@@ -32,26 +32,26 @@ public class ProductController {
         modelMap.put("allCategory", allCategory);
         List<ProductResponse> productsByCategoryId = productService.findProductsByCategoryId(id);
         modelMap.put("newProducts", productsByCategoryId);
-        likedService.checkUser(springUser,modelMap);
+        likedService.checkUser(springUser, modelMap);
         return "home";
     }
 
     //етот метод придназначен для оделного страници продукта
     @GetMapping("/page/{id}")
-    public String productPage (@PathVariable int id, ModelMap modelMap, @AuthenticationPrincipal SpringUser springUser){
+    public String productPage(@PathVariable int id, ModelMap modelMap, @AuthenticationPrincipal SpringUser springUser) {
         ProductResponse productById = productService.findProductById(id);
         modelMap.put("product", productById);
-       likedService.checkUser(springUser, modelMap);
+        likedService.checkUser(springUser, modelMap);
         return "productPage";
     }
 
     //этот метод разработан таким образом, что на странице продукта также можно выбирать избранные товары
     @GetMapping("/liked/{id}")
-    public String addLikedProductPage(@PathVariable int id, @AuthenticationPrincipal SpringUser springUser, ModelMap modelMap){
+    public String addLikedProductPage(@PathVariable int id, @AuthenticationPrincipal SpringUser springUser, ModelMap modelMap) {
         ProductResponse productById = productService.findProductById(id);
         modelMap.put("product", productById);
-        if (springUser != null){
-            likedService.save(id,springUser.getUsername());
+        if (springUser != null) {
+            likedService.save(id, springUser.getUsername());
             likedService.checkUser(springUser, modelMap);
         }
         return "productPage";
@@ -59,14 +59,14 @@ public class ProductController {
 
     // этот метод палучает ID и с помшю етого ID удаляем избрнние из бази данних
     @GetMapping("/delete{id}")
-    public String deleteLikedById(@PathVariable int id){
+    public String deleteLikedById(@PathVariable int id) {
         likedService.deleteById(id);
-        return "redirect:/v1/";
+        return "redirect:/";
     }
 
     //Этот метод также предназначен для удаления избрнних, но после удаления товара необходимо перейти на ту же страницу товара.
     @GetMapping("/product-page/delete")
-    public String productPageDeleteLikedById(@RequestParam("id") int id, @RequestParam("productId") int productId, ModelMap modelMap, @AuthenticationPrincipal SpringUser springUser){
+    public String productPageDeleteLikedById(@RequestParam("id") int id, @RequestParam("productId") int productId, ModelMap modelMap, @AuthenticationPrincipal SpringUser springUser) {
         likedService.delete(id);
         ProductResponse productById = productService.findProductById(productId);
         modelMap.put("product", productById);

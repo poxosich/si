@@ -154,7 +154,7 @@ class ProductServiceImplTest {
 
     @Test
     void findProductById() {
-        when(productRepository.findProductById(anyInt())).thenReturn(Optional.empty());
+        when(productRepository.findById(anyInt())).thenReturn(Optional.empty());
         assertThrows(ProductNotFoundException.class, () -> productService.findProductById(anyInt()));
     }
 
@@ -162,7 +162,7 @@ class ProductServiceImplTest {
     void findProductByIdIsPresent() {
         Product product = new Product();
         ProductResponse productResponse = new ProductResponse();
-        when(productRepository.findProductById(anyInt())).thenReturn(Optional.of(product));
+        when(productRepository.findById(anyInt())).thenReturn(Optional.of(product));
         when(productMapper.toDto(product)).thenReturn(productResponse);
         ProductResponse productById = productService.findProductById(anyInt());
 

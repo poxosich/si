@@ -51,17 +51,17 @@ class LoginControllerTest {
     void loginPageUserNotNull() throws Exception {
         Authentication authentication = setSpringUser();
 
-        mockMvc.perform(get("/v1/login/login-page")
+        mockMvc.perform(get("/login/login-page")
                         .with(authentication(authentication)))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/v1/"));
+                .andExpect(redirectedUrl("/"));
 
         SecurityContextHolder.clearContext();
     }
 
     @Test
     void loginPageUserIsNull() throws Exception {
-        mockMvc.perform(get("/v1/login/login-page"))
+        mockMvc.perform(get("/login/login-page"))
                 .andExpect(status().isOk()).andExpect(view()
                         .name("login"));
     }
@@ -69,10 +69,10 @@ class LoginControllerTest {
     @Test
     void loginSuccessUser() throws Exception {
         Authentication authentication = setSpringUser();
-        mockMvc.perform(get("/v1/login/success")
+        mockMvc.perform(get("/login/success")
                         .with(authentication(authentication)))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/v1/"));
+                .andExpect(redirectedUrl("/"));
     }
 
 
@@ -80,7 +80,7 @@ class LoginControllerTest {
     void loginSuccessAdmin() throws Exception {
         Authentication authentication = setSpringUserAdmin();
 
-        mockMvc.perform(get("/v1/login/success")
+        mockMvc.perform(get("/login/success")
                         .with(authentication(authentication)))
                 .andExpect(status().isOk())
                 .andExpect(view().name("adminHom"));

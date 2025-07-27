@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/v1/login")
+@RequestMapping("/login")
 public class LoginController {
 
     //перенаправляет вас на страницу входа
     @GetMapping("/login-page")
     public String loginPage(@AuthenticationPrincipal SpringUser springUser) {
         if (springUser != null) {
-            return "redirect:/v1/";
+            return "redirect:/";
         }
         return "login";
     }
@@ -30,6 +30,6 @@ public class LoginController {
         if (username.getRole().equals(Role.ADMIN)) {
             return "adminHom";
         }
-        return "redirect:/v1/";
+        return "redirect:/";
     }
 }
